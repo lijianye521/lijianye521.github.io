@@ -30,7 +30,7 @@
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {}
     KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en","path":"search.xml"}
-    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true},"style":{"primary_color":"#0066cc","logo":"/images/logo.png","favicon":"/images/logo.png","avatar":"/images/logo.png","font_size":null,"font_family":null,"hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"好好学习，天天向上","font_color":null,"hitokoto":false},"scroll":{"progress_bar":false,"percent":false}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":false,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":false,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":false,"wordcount":false,"min2read":false},"img_align":"left","copyright_info":true},"version":"3.6.1"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true},"style":{"primary_color":"#0066cc","logo":"/images/logo.png","favicon":"/images/logo.png","avatar":"/images/logo.png","font_size":null,"font_family":null,"hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"好好学习，天天向上","font_color":null,"hitokoto":false},"scroll":{"progress_bar":false,"percent":false}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":false,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":false,"wordcount":false,"min2read":false},"img_align":"left","copyright_info":false},"version":"3.6.1"}
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
     KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
     KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original article title","author":"Original article author","link":"Original article link"}
@@ -87,7 +87,15 @@
                             <a class=""
                                href="/archives"
                             >
-                                档案
+                                博客日志
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
                             </a>
                         </li>
                     
@@ -95,7 +103,7 @@
                             <a class=""
                                href="/categories"
                             >
-                                种类
+                                归档
                             </a>
                         </li>
                     
@@ -151,12 +159,17 @@
             
                 <li class="drawer-menu-item flex-center">
                     <a class=""
-                       href="/archives">档案</a>
+                       href="/archives">博客日志</a>
                 </li>
             
                 <li class="drawer-menu-item flex-center">
                     <a class=""
-                       href="/categories">种类</a>
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">归档</a>
                 </li>
             
                 <li class="drawer-menu-item flex-center">
@@ -197,6 +210,41 @@
                 
 
                 <h3 class="home-article-title">
+                    <a href="/2023/01/15/%E6%A0%BC%E5%AD%90%E5%88%B7%E6%B2%B9%E6%BC%86/">
+                        格子刷油漆
+                    </a>
+                </h3>
+
+                <div class="home-article-content keep-markdown-body">
+                    
+                        格子刷油漆题目描述X 国的一段古城墙的顶端可以看成 2\times N2×N 个格子组成的矩形（如下图所示），现需要把这些格子刷上保护漆。
+
+你可以从任意一个格子刷起，刷完一格，可以移动到和它相邻的格子（对角相邻也算数），但不能移动到较远的格子（因为...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-updated="Sun Jan 15 2023 18:39:26 GMT+0800">
+                2023-01-15
+            </span>
+        </span>
+        
+        
+    </div>
+
+    <a class="read-more" href="/2023/01/15/%E6%A0%BC%E5%AD%90%E5%88%B7%E6%B2%B9%E6%BC%86/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
                     <a href="/2023/01/15/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
                         动态规划
                     </a>
@@ -213,7 +261,7 @@
     <div class="home-article-meta-info">
         <span>
             <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Sun Jan 15 2023 13:25:39 GMT+0800">
+            <span class="home-article-date" data-updated="Sun Jan 15 2023 18:34:57 GMT+0800">
                 2023-01-15
             </span>
         </span>
@@ -247,7 +295,7 @@
     <div class="home-article-meta-info">
         <span>
             <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Sun Jan 15 2023 13:25:26 GMT+0800">
+            <span class="home-article-date" data-updated="Sun Jan 15 2023 18:41:54 GMT+0800">
                 2023-01-15
             </span>
         </span>
@@ -281,7 +329,7 @@
     <div class="home-article-meta-info">
         <span>
             <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Sun Jan 15 2023 13:25:11 GMT+0800">
+            <span class="home-article-date" data-updated="Sun Jan 15 2023 18:41:43 GMT+0800">
                 2023-01-15
             </span>
         </span>
@@ -317,7 +365,7 @@
     <div class="home-article-meta-info">
         <span>
             <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Sun Jan 15 2023 13:24:55 GMT+0800">
+            <span class="home-article-date" data-updated="Sun Jan 15 2023 18:41:34 GMT+0800">
                 2023-01-15
             </span>
         </span>
@@ -351,7 +399,7 @@
     <div class="home-article-meta-info">
         <span>
             <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Sun Jan 15 2023 00:13:25 GMT+0800">
+            <span class="home-article-date" data-updated="Sun Jan 15 2023 18:35:11 GMT+0800">
                 2023-01-15
             </span>
         </span>
@@ -360,41 +408,6 @@
     </div>
 
     <a class="read-more" href="/2023/01/15/%E5%8D%95%E8%AF%8D%E5%88%86%E6%9E%90/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2023/01/14/%E6%88%90%E7%BB%A9%E7%BB%9F%E8%AE%A1-1/">
-                        
-                    </a>
-                </h3>
-
-                <div class="home-article-content keep-markdown-body">
-                    
-                        成绩统计题目描述小蓝给学生们组织了一场考试，卷面总分为 100 分，每个学生的得分都是一个 0 到 100 的整数。
-如果得分至少是 60 分，则称为及格。如果得分至少为 85 分，则称为优秀。
-请计算及格率和优秀率，用百分数表示，百分号前的部分四舍...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span>
-            <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Sat Jan 14 2023 23:44:43 GMT+0800">
-                2023-01-14
-            </span>
-        </span>
-        
-        
-    </div>
-
-    <a class="read-more" href="/2023/01/14/%E6%88%90%E7%BB%A9%E7%BB%9F%E8%AE%A1-1/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>

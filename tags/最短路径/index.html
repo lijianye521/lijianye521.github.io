@@ -9,7 +9,7 @@
     
     <title>
         
-            年号字串 |
+            Tag: 最短路径 |
         
         業易6
     </title>
@@ -94,7 +94,7 @@
                         </li>
                     
                         <li class="menu-item">
-                            <a class=""
+                            <a class="active"
                                href="/tags"
                             >
                                 标签
@@ -165,7 +165,7 @@
                 </li>
             
                 <li class="drawer-menu-item flex-center">
-                    <a class=""
+                    <a class="active"
                        href="/tags">标签</a>
                 </li>
             
@@ -205,163 +205,42 @@
 
                 
                     <div class="fade-in-down-animation">
-    <div class="post-page-container">
-        <div class="article-content-container">
-
-            <div class="article-title">
-                <span class="title-hover-animation">年号字串</span>
-            </div>
-
-            
-                <div class="article-header">
-                    <div class="avatar">
-                        <img src="/images/logo.png">
-                    </div>
-                    <div class="info">
-                        <div class="author">
-                            <span class="name">caiye</span>
-                            
-                                <span class="author-label">Lv3</span>
-                            
-                        </div>
-                        <div class="meta-info">
-                            
-<div class="article-meta-info">
-    <span class="article-date article-meta-item">
-        
-            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
-        
-        <span class="pc">2023-01-15 00:08:13</span>
-        <span class="mobile">2023-01-15 00:08</span>
-    </span>
-    
-        <span class="article-update-date article-meta-item">
-        <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2023-01-15 18:37:33</span>
-    </span>
-    
-    
-        <span class="article-categories article-meta-item">
-            <i class="fas fa-folder"></i>&nbsp;
-            <ul>
-                
-                    <li>
-                        <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>&nbsp;
-                    </li>
-                
-            </ul>
-        </span>
-    
-    
-        <span class="article-tags article-meta-item">
-            <i class="fas fa-tags"></i>&nbsp;
-            <ul>
-                
-                    <li>
-                        <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/">字符串</a>&nbsp;
-                    </li>
-                
-                    <li>
-                        | <a href="/tags/%E6%97%A5%E6%9C%9F/">日期</a>&nbsp;
-                    </li>
-                
-            </ul>
-        </span>
-    
-
-    
-    
-    
-    
-</div>
-
-                        </div>
-                    </div>
-                </div>
-            
-
-            <div class="article-content keep-markdown-body">
-                
-
-                <h1 id="年号字串"><a href="#年号字串" class="headerlink" title="年号字串"></a>年号字串</h1><p>(257)</p>
-<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p><strong>本题为填空题，只需要算出结果后，在代码中使用输出语句将所填结果输出即可。</strong></p>
-<p>小明用字母 A 对应数字 1，B 对应 2，以此类推，用 Z 对应 26。对于 27 以上的数字，小明用两位或更长位的字符串来对应，例如 AA 对应 27，AB 对应28，AZ 对应 52，LQ 对应 329。</p>
-<p>请问 2019 对应的字符串是什么？</p>
-<h3 id="运行限制"><a href="#运行限制" class="headerlink" title="运行限制"></a>运行限制</h3><ul>
-<li>最大运行时间：1s</li>
-<li>最大运行内存: 128M</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//年号子串实质上就是所谓的26进制转化</span></span><br><span class="line">	<span class="type">int</span> n=<span class="number">2019</span>;</span><br><span class="line">	<span class="comment">//cin&gt;&gt;n;</span></span><br><span class="line">	string s1=<span class="string">&quot;&quot;</span>;</span><br><span class="line">	<span class="type">char</span> m=<span class="string">&#x27;A&#x27;</span>;<span class="comment">//A的阿斯克码是65</span></span><br><span class="line">	<span class="type">char</span> A[<span class="number">27</span>]=&#123;&#125;;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">26</span>;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		A[i]=i+<span class="number">64</span>;<span class="comment">//这样第一个位置为其他位置为 </span></span><br><span class="line">	&#125; </span><br><span class="line"><span class="comment">//	int p1=m;</span></span><br><span class="line"><span class="comment">//	cout&lt;&lt; p1;</span></span><br><span class="line"><span class="comment">/*for(const auto &amp;s2:A)</span></span><br><span class="line"><span class="comment">&#123;</span></span><br><span class="line"><span class="comment">	cout&lt;&lt;s2&lt;&lt;endl;</span></span><br><span class="line"><span class="comment">&#125;*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(n!=<span class="number">0</span>)</span><br><span class="line">&#123;s1+=A[n%<span class="number">26</span>];</span><br><span class="line">n/=<span class="number">26</span>;</span><br><span class="line">	</span><br><span class="line">&#125;	</span><br><span class="line"><span class="built_in">reverse</span>(s1.<span class="built_in">begin</span>(),s1.<span class="built_in">end</span>());</span><br><span class="line">	cout&lt;&lt;s1;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-            </div>
-
-            
-
-            
-                <ul class="post-tags-box">
-                    
-                        <li class="tag-item">
-                            <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/">#字符串</a>&nbsp;
-                        </li>
-                    
-                        <li class="tag-item">
-                            <a href="/tags/%E6%97%A5%E6%9C%9F/">#日期</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            
-
-            
-                <div class="article-nav">
-                    
-                        <div class="article-prev">
-                            <a class="prev"
-                               rel="prev"
-                               href="/2023/01/15/%E6%A3%8B%E7%9B%98%E6%94%BE%E9%BA%A6%E5%AD%90/"
-                            >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                                <span class="title flex-center">
-                                <span class="post-nav-title-item">棋盘放麦子</span>
-                                <span class="post-nav-item">Prev posts</span>
-                            </span>
-                            </a>
-                        </div>
-                    
-                    
-                        <div class="article-next">
-                            <a class="next"
-                               rel="next"
-                               href="/2023/01/15/%E5%9B%9E%E6%96%87%E6%97%A5%E6%9C%9F/"
-                            >
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">回文日期</span>
-                                <span class="post-nav-item">Next posts</span>
-                            </span>
-                                <span class="right arrow-icon flex-center">
-                              <i class="fas fa-chevron-right"></i>
-                            </span>
-                            </a>
-                        </div>
-                    
-                </div>
-            
-
-            
+    <div class="tag-container">
+        <div class="tag-name"><i class="fas fa-tag"></i>&nbsp;最短路径
         </div>
-
-        
-            <div class="toc-content-container">
-                <div class="post-toc-wrap">
-    <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B9%B4%E5%8F%B7%E5%AD%97%E4%B8%B2"><span class="nav-text">年号字串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E9%99%90%E5%88%B6"><span class="nav-text">运行限制</span></a></li></ol></li></ol></li></ol>
-    </div>
+        <div class="tag-post-list">
+            
+<div class="archive-list-container">
+    
+        <section class="archive-item">
+            <div class="archive-item-header">
+                <span class="archive-year">2023</span>
+                <span class="archive-year-post-count">[1]</span>
+            </div>
+            <ul class="article-list">
+                
+                    <li class="article-item">
+                        <a class="article-title"
+                           href="/2023/01/15/%E6%9C%80%E7%9F%AD%E8%B7%AF/"
+                        >最短路</a>
+                        <span class="article-date">01-15</span>
+                    </li>
+                
+            </ul>
+        </section>
+    
 </div>
 
-            </div>
-        
+        </div>
+    </div>
+
+    <div class="tag-paginator">
+        <div class="paginator">
+    
+
+    
+</div>
+
     </div>
 </div>
 
@@ -398,23 +277,6 @@
         </div>
     </div>
 
-    
-        <div class="post-tools">
-            <div class="post-tools-container">
-    <ul class="tools-list">
-        <!-- TOC aside toggle -->
-        
-            <li class="tools-item flex-center toggle-show-toc">
-                <i class="fas fa-list"></i>
-            </li>
-        
-
-        <!-- go comment -->
-        
-    </ul>
-</div>
-
-        </div>
     
 
     <div class="right-bottom-side-tools">
@@ -521,20 +383,6 @@
 
 
 <div class="post-scripts pjax">
-    
-        
-<script src="/js/post-helper.js"></script>
-
-        
-            
-<script src="/js/libs/anime.min.js"></script>
-
-        
-        
-            
-<script src="/js/toc.js"></script>
-
-        
     
 </div>
 
