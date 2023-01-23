@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="caiye">
+    
+    <title>
+        
+            PHP and MySQL Web Development |
+        
+        業易6
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.png">
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en","path":"search.xml"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true},"style":{"primary_color":"#0066cc","logo":"/images/logo.png","favicon":"/images/logo.png","avatar":"/images/logo.png","font_size":null,"font_family":null,"hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"好好学习，天天向上","font_color":null,"hitokoto":false},"scroll":{"progress_bar":false,"percent":false}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":false,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":false,"wordcount":false,"min2read":false},"img_align":"left","copyright_info":false},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
+    KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original article title","author":"Original article author","link":"Original article link"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/images/logo.png">
+                </a>
+            
+            <a class="logo-title" href="/">
+               業易6
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                博客日志
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                链接
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/%E7%A7%81%E4%BA%BA%E5%8C%BA%E5%9F%9F"
+                            >
+                                私人区
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">博客日志</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">链接</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/%E7%A7%81%E4%BA%BA%E5%8C%BA%E5%9F%9F">私人区</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">PHP and MySQL Web Development</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/images/logo.png">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">caiye</span>
+                            
+                                <span class="author-label">Lv3</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2023-01-23 18:43:03</span>
+        <span class="mobile">2023-01-23 18:43</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-01-23 18:48:44</span>
+    </span>
+    
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93-Web/">数据库 Web</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/PHP/">PHP</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/MYSQL/">MYSQL</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <h1 id="PHP-and-MySQL-Web-Development"><a href="#PHP-and-MySQL-Web-Development" class="headerlink" title="PHP and MySQL Web Development"></a>PHP and MySQL Web Development</h1><blockquote>
+<p>All the information is based on the book PHP and MySQL Web Development(the 5th edition)  However, the author of this document has simplified the contents of the book and made a detailed design according to the principle of practicality first.</p>
+</blockquote>
+<blockquote>
+<p>所有信息均基于《PHP和MySQL Web开发》（第5版）一书。然而，本文档的作者简化了本书的内容，并根据实用性优先的原则进行了详细设计。</p>
+</blockquote>
+<blockquote>
+<p>阅读此文档前，您需具备HTML，CSS和JavaScript的基础知识</p>
+</blockquote>
+<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><h4 id="1-web环境安装"><a href="#1-web环境安装" class="headerlink" title="1.web环境安装"></a>1.web环境安装</h4><blockquote>
+<p>一般是三件套 ：web服务，php（本文作者应用的是phpv8.1.8），应用服务器（apache和nginx），MySQL管理系统</p>
+</blockquote>
+<h4 id="2-环境集成包"><a href="#2-环境集成包" class="headerlink" title="2.环境集成包"></a>2.环境集成包</h4><blockquote>
+<p>有一些集成包比较方便 phpStudy，Xampp，宝塔面板，wdcp面板安装比较方便</p>
+</blockquote>
+<h2 id="使用php"><a href="#使用php" class="headerlink" title="使用php"></a>使用php</h2><h3 id="从创建老式表单开始"><a href="#从创建老式表单开始" class="headerlink" title="从创建老式表单开始"></a>从创建老式表单开始</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;processorder.php&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">table</span> <span class="attr">style</span>=<span class="string">&quot;border: 0px;&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">tr</span> <span class="attr">style</span>=<span class="string">&quot;background-color: #cccccc;&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;width: 150px; text-align: center;&quot;</span>&gt;</span>Item<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;width: 15px; text-align: center;&quot;</span>&gt;</span>Quantity<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"></span><br><span class="line">            <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">td</span>&gt;</span>Tires<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">td</span>&gt;</span> <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;tireqty&quot;</span> <span class="attr">size</span>=<span class="string">&quot;3&quot;</span> <span class="attr">maxlength</span>=<span class="string">&quot;3&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">td</span>&gt;</span>Oil<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">td</span>&gt;</span> <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;tireqty&quot;</span> <span class="attr">size</span>=<span class="string">&quot;3&quot;</span> <span class="attr">maxlength</span>=<span class="string">&quot;3&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">td</span>&gt;</span>Spark Plugs<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">td</span>&gt;</span> <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;tireqty&quot;</span> <span class="attr">size</span>=<span class="string">&quot;3&quot;</span> <span class="attr">maxlength</span>=<span class="string">&quot;3&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">&quot;2&quot;</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;Submit Oeder&quot;</span> <span class="attr">id</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>form 表单属性解释</p>
+<p>action属性是一个将会在用户点击Submit 按钮时加载的URL</p>
+<p>用户输入在表单的数据将会通过http方法(这个方法规定在method属性中 ，有两种值 get(追加在URL的最后) 或者post（像单独分离的信息一样发送)）发送到这个URL</p>
+</blockquote>
+<h3 id="处理表单"><a href="#处理表单" class="headerlink" title="处理表单"></a>处理表单</h3><p>插入一行php代码，让其打印一段p标签</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">echo</span> <span class="string">&#x27;&lt;p&gt;Order processed.&lt;/p&gt;&#x27;</span>;<span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="php-标签"><a href="#php-标签" class="headerlink" title="php 标签"></a>php 标签</h3><p>php标签 php标签总是以&lt;?php 开始 以 ?&gt;结束</p>
+<p>这里有两种php标签的样式</p>
+<h4 id="xml样式"><a href="#xml样式" class="headerlink" title="xml样式"></a>xml样式</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">echo</span> <span class="string">&#x27;&lt;p&gt;Order processed.&lt;/p&gt;&#x27;</span>;<span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="短样式"><a href="#短样式" class="headerlink" title="短样式"></a>短样式</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?</span> <span class="keyword">echo</span> <span class="string">&#x27;&lt;p&gt;Order processed.&lt;/p&gt;&#x27;</span>;<span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>但是这种样式需要打开一些设置  例如config文件中的short_open_tags  </p>
+<h3 id="php语句"><a href="#php语句" class="headerlink" title="php语句"></a>php语句</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">echo</span> <span class="string">&#x27;&lt;p&gt; Order processed.&lt;/p&gt;&#x27;</span>;<span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>echo 语句很容易理解，就是打印输出字符串让其出现在浏览器上，注意echo语句的最后有一个 分号，漏掉分号是一个比较哦啊常见的编译错误。</p>
+<p>php 引擎自动略过多余的空格</p>
+<h3 id="添加动态内容"><a href="#添加动态内容" class="headerlink" title="添加动态内容"></a>添加动态内容</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    echo &#x27;&lt;p&gt;Order processed at&#x27;;</span><br><span class="line">    echo date(&#x27;H:i,jS F Y&#x27;);</span><br><span class="line">    echo &quot;&lt;/p&gt;&quot;;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>也可以将代码写在一行中，不同echo输出语句之间加(.)</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"> <span class="keyword">echo</span> <span class="string">&quot;&lt;p&gt;Order processed at &quot;</span>.<span class="title function_ invoke__">date</span>(<span class="string">&#x27;H:i, jS F Y&#x27;</span>).<span class="string">&quot;&lt;/p&gt;&quot;</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/lijianye521/images/master/image-20230117174629312.png" alt="image-20230117174629312"></p>
+<h4 id="date-函数"><a href="#date-函数" class="headerlink" title="date()函数"></a>date()函数</h4><p>date（）函数期望你传递给他格式化的字符串，这些格式化的字符串代表着你想输出的风格。H是24小时格式的小时（hour），i是分钟。j是月份中的第几天，S（suffix）是表示序数的后缀（本文中是th）F是月份的全称（ full name of month）</p>
+<blockquote>
+<p>If date() gives you a warning about not having set the timezone, you should add the  date.timezone setting to your php.ini file. More information on this can be found in  the sample php.ini file in Appendix A（懒得翻译，自己看吧，一般也不会遇到这种情况）</p>
+</blockquote>
+<h3 id="访问表单变量"><a href="#访问表单变量" class="headerlink" title="访问表单变量"></a>访问表单变量</h3><h4 id="表单变量"><a href="#表单变量" class="headerlink" title="表单变量"></a>表单变量</h4><p>如果你想访问表单字段tireqty里的内容，可以通过以下这种方式</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$_POST</span>[<span class="string">&#x27;tireqty&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+<p>$_POST是一个可以保存经过HTTP POST请求提交的数据信息。</p>
+<p>这里有三种方法可以存储表单的信息，$POST, $GET和 $REQUEST，GET 或 POST 提交的所有数据的组合也可以通过 $REQUEST 获得。</p>
+<h4 id="访问并输出这些变量"><a href="#访问并输出这些变量" class="headerlink" title="访问并输出这些变量"></a>访问并输出这些变量</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">   <span class="comment">//create short variable names</span></span><br><span class="line">   <span class="variable">$tireqty</span> = <span class="variable">$_POST</span>[<span class="string">&#x27;tireqty&#x27;</span>];</span><br><span class="line">   <span class="variable">$oilqty</span> = <span class="variable">$_POST</span>[<span class="string">&#x27;oilqty&#x27;</span>];</span><br><span class="line">   <span class="variable">$sparkqty</span> = <span class="variable">$_POST</span>[<span class="string">&#x27;sparkqty&#x27;</span>];</span><br><span class="line"></span><br><span class="line">   <span class="comment">//有两种方式可以输出这些变量 一种是直接的输出</span></span><br><span class="line">   <span class="comment">//echo ￥tireqty .&#x27;tires&lt;br /&gt;&#x27;; </span></span><br><span class="line">   <span class="comment">//但是这种方式并不推荐，因为从安全性考虑 我们不推荐使用这种方式</span></span><br><span class="line">   <span class="keyword">echo</span> <span class="string">&#x27;&lt;p&gt; Your order is as follows&lt;/p&gt;&#x27;</span>;</span><br><span class="line">   <span class="keyword">echo</span> <span class="title function_ invoke__">htmlspecialchars</span>(<span class="variable">$tireqty</span>) . <span class="string">&#x27; tires&lt;br /&gt;&#x27;</span>;</span><br><span class="line">   <span class="keyword">echo</span> <span class="title function_ invoke__">htmlspecialchars</span>(<span class="variable">$oilqty</span>) . <span class="string">&#x27; bottles of oil &lt;br /&gt;&#x27;</span>;</span><br><span class="line">   <span class="keyword">echo</span> <span class="title function_ invoke__">htmlspecialchars</span>(<span class="variable">$sparkqty</span>) . <span class="string">&#x27; spark plugs &lt;br /&gt;&#x27;</span>;</span><br><span class="line">   <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<p><img src="https://raw.githubusercontent.com/lijianye521/images/master/image-20230117225403596.png" alt="image-20230117225403596"></p>
+<h4 id="字符串连接"><a href="#字符串连接" class="headerlink" title="字符串连接"></a>字符串连接</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//to print the string of variables + tires</span></span><br><span class="line">    <span class="keyword">echo</span> <span class="title function_ invoke__">htmlspecialchars</span>(<span class="variable">$tireqty</span>) . <span class="string">&#x27; tires&lt;br /&gt;&#x27;</span>;</span><br><span class="line">    <span class="comment">//or you can use 必须使用双引号 这个过程，用它的内容替换一个变量</span></span><br><span class="line"><span class="comment">//在字符串中，称为插值。</span></span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&#x27;双引号变量插值&#x27;</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;<span class="subst">$tireqty</span> tires&lt;br /&gt;&quot;</span>;</span><br><span class="line">    <span class="comment">//单引号将会直接输出单引号里面的内容</span></span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&#x27;单引号直接输出&#x27;</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&#x27;$tireqty tires&lt;br /&gt;&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>第三种指定打印字符串的方法是 heredoc语法 </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> <span class="string">&lt;&lt;&lt;theEnd</span></span><br><span class="line"><span class="string"> line 1</span></span><br><span class="line"><span class="string"> line 2</span></span><br><span class="line"><span class="string"> line 3</span></span><br><span class="line"><span class="string">theEnd</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="PHP数据类型"><a href="#PHP数据类型" class="headerlink" title="PHP数据类型"></a>PHP数据类型</h3><blockquote>
+<p>Integer 整型</p>
+<p>Float 浮点型</p>
+<p>String 字符串</p>
+<p>Boolen 布尔型</p>
+<p>Array 数组类型</p>
+<p>Object 对象</p>
+<p>三种特殊类型是 NULL（空值）（未给定值、未设置或已给定特定值的变量值NULL的类型为NULL）</p>
+<p>某些内置函数（如数据库函数）返回具有以下类型的变量资源它们表示外部资源（如数据库连接）。你几乎会当然不会直接操作资源变量，但它们通常由函数，并且必须作为参数传递给其他函数。</p>
+<p>可调用函数本质上是传递给其他函数的函数</p>
+</blockquote>
+<h4 id="类型转化"><a href="#类型转化" class="headerlink" title="类型转化"></a>类型转化</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$totalqty</span> =<span class="number">0</span>;</span><br><span class="line"><span class="variable">$totalmount</span>=(<span class="keyword">float</span>)<span class="variable">$totalqty</span>;</span><br><span class="line"><span class="comment">//获取totalqty，，将其解释为浮点型，并将其存储在totalmount内</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="可变变量"><a href="#可变变量" class="headerlink" title="可变变量"></a>可变变量</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$varname</span> =<span class="string">&#x27;tireqty&#x27;</span>;</span><br><span class="line"><span class="comment">//你可以使用$$varname 代替$tireqty</span></span><br><span class="line"><span class="variable">$$varname</span>=<span class="number">5</span>;</span><br><span class="line"><span class="comment">//这个等同于</span></span><br><span class="line"><span class="variable">$tireqty</span>=<span class="number">5</span>;</span><br><span class="line"><span class="comment">//也就是说可变变量类似于是一个变量的别名</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="声明和使用常量"><a href="#声明和使用常量" class="headerlink" title="声明和使用常量"></a>声明和使用常量</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">define</span>(<span class="string">&#x27;TIREPRICE&#x27;</span>,<span class="number">100</span>);</span><br><span class="line"><span class="title function_ invoke__">define</span>(<span class="string">&#x27;OILPRICE&#x27;</span>,<span class="number">10</span>);</span><br><span class="line"><span class="title function_ invoke__">define</span>(<span class="string">&#x27;SPARKPRICE&#x27;</span>,<span class="number">4</span>);</span><br><span class="line"><span class="comment">//打印常量时不需要美元符号</span></span><br><span class="line"><span class="keyword">echo</span> TIREPRICE;</span><br><span class="line"><span class="comment">//除了自己定义的常量以外，php也提供了不少常量，这个可以通过phpinfo()去查看</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="使用运算符"><a href="#使用运算符" class="headerlink" title="使用运算符"></a>使用运算符</h3><h4 id="数学运算符"><a href="#数学运算符" class="headerlink" title="数学运算符"></a>数学运算符</h4><p>加减乘除取余，这都不用多解释了</p>
+<p><img src="https://raw.githubusercontent.com/lijianye521/images/master/image-20230119075551545.png" alt="image-20230119075551545"></p>
+<h4 id="字符串运算符"><a href="#字符串运算符" class="headerlink" title="字符串运算符"></a>字符串运算符</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$a</span> =<span class="string">&quot;Bob&#x27;s&quot;</span>;</span><br><span class="line"><span class="variable">$B</span>=<span class="string">&quot;Auto Parts&quot;</span>;</span><br><span class="line"><span class="variable">$result</span>=<span class="variable">$a</span>.<span class="variable">$b</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$totalqty</span>=<span class="number">0</span>;</span><br><span class="line"><span class="comment">//这里的等于号就是赋值运算符 将变量totalqty赋值为0</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="引用运算符"><a href="#引用运算符" class="headerlink" title="引用运算符"></a>引用运算符</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//通常情况下将一个变量的值赋给另一个变量，一个变量的值修改并不会影响另一个变量</span></span><br><span class="line"><span class="variable">$a</span>=<span class="number">5</span>;</span><br><span class="line"><span class="variable">$b</span>=<span class="variable">$a</span>;</span><br><span class="line"><span class="comment">//当我们对a做出修改</span></span><br><span class="line"><span class="variable">$a</span>=<span class="number">7</span>;<span class="comment">//这个b将会仍然等于5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//引用类似于一个别名，可以让两个变量名指向同一个内存，使得一个变量改变，另一个紧随其后也改变</span></span><br><span class="line"><span class="variable">$a</span>=<span class="number">5</span>;</span><br><span class="line"><span class="variable">$b</span>=&amp;<span class="variable">$a</span>;</span><br><span class="line"><span class="variable">$a</span>=<span class="number">7</span>;<span class="comment">//$a and $b are now both 7</span></span><br><span class="line"><span class="comment">//如果你想解除这个引用，你可以对其中一个变量使用unset</span></span><br><span class="line"><span class="keyword">unset</span>(<span class="variable">$a</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h4><p>比较运算符会返回true或者false基于比较的结果。</p>
+<h5 id="等于运算符"><a href="#等于运算符" class="headerlink" title="等于运算符"></a>等于运算符</h5><p>这个注意一下，等于运算符也属于比价运算符，当两边值相等时返回true，不相等是返回false</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$a</span>==<span class="variable">$b</span>;   </span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/lijianye521/images/master/image-20230119081137796.png" alt="image-20230119081137796"></p>
+<h4 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h4><p>这个类似于c（或者c++)</p>
+<p><img src="https://raw.githubusercontent.com/lijianye521/images/master/image-20230119081303099.png" alt="image-20230119081303099"></p>
+<h4 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h4><p>无非就是与或非 异或 左移 右移</p>
+<p><img src="https://raw.githubusercontent.com/lijianye521/images/master/image-20230119081730203.png" alt="image-20230119081730203"></p>
+<h4 id="其他运算符"><a href="#其他运算符" class="headerlink" title="其他运算符"></a>其他运算符</h4><h5 id="new-和-gt"><a href="#new-和-gt" class="headerlink" title="new 和 -&gt;"></a>new 和 -&gt;</h5><p>实例化一个类，访问类成员</p>
+<h5 id="三元运算符"><a href="#三元运算符" class="headerlink" title="三元运算符"></a>三元运算符</h5><p>condition ？ if true : if false</p>
+<h5 id="错误抑制运算符（The-Error-Suppression-Operator）"><a href="#错误抑制运算符（The-Error-Suppression-Operator）" class="headerlink" title="错误抑制运算符（The Error Suppression Operator）"></a>错误抑制运算符（The Error Suppression Operator）</h5><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$a</span>=@(<span class="number">87</span>/<span class="number">0</span>);</span><br><span class="line"><span class="comment">//如果没有这个@运算符，这一行将会产生除以零的警告，如果有这个运算符，这个问题就被抑制了</span></span><br><span class="line"><span class="comment">//如果你是用了这种方式，你需要修改在php.ini中的track_errors中的代码来实现错误处理，</span></span><br><span class="line"><span class="comment">//错误信息将会存储在全局变量$php_errormsg中</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="执行运算符"><a href="#执行运算符" class="headerlink" title="执行运算符"></a>执行运算符</h5><p>执行运算符是一对反引号&#96;&#96;，位于键盘左上角与~同键位</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$out</span>=`dir c:`;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&#x27;&lt;pre&gt;&#x27;</span> .<span class="variable">$out</span> .<span class="string">&#x27;&lt;/pre&gt;&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>表达式的结果是命令行输出的结果。</p>
+<h5 id="数组运算符"><a href="#数组运算符" class="headerlink" title="数组运算符"></a>数组运算符</h5><p><img src="https://raw.githubusercontent.com/lijianye521/images/master/image-20230119091305050.png" alt="image-20230119091305050"></p>
+<h5 id="类型运算符-instanceof"><a href="#类型运算符-instanceof" class="headerlink" title="类型运算符 instanceof"></a>类型运算符 instanceof</h5><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">sampleClass</span></span>&#123;&#125;;</span><br><span class="line"><span class="variable">$myObject</span> = <span class="keyword">new</span> <span class="title function_ invoke__">sampleClass</span>();</span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$myObject</span> <span class="keyword">instanceof</span> sampleClass)</span><br><span class="line"> <span class="keyword">echo</span> <span class="string">&quot;myObject is an instance of sampleClass&quot;</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="完成整个表单"><a href="#完成整个表单" class="headerlink" title="完成整个表单"></a>完成整个表单</h3><p>添加如下代码</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$totalqty</span> = <span class="number">0</span>;</span><br><span class="line">    <span class="variable">$totalqty</span> = <span class="variable">$tireqty</span> + <span class="variable">$oilqty</span> + <span class="variable">$sparkqty</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;&lt;p&gt;Items ordered: &quot;</span> . <span class="variable">$totalqty</span> . <span class="string">&quot;&lt;br /&gt;&quot;</span>;</span><br><span class="line">    <span class="variable">$totalamount</span> = <span class="number">0.00</span>;</span><br><span class="line">    <span class="comment">//define the price</span></span><br><span class="line">    <span class="title function_ invoke__">define</span>(<span class="string">&#x27;TIREPRICE&#x27;</span>, <span class="number">100</span>);</span><br><span class="line">    <span class="title function_ invoke__">define</span>(<span class="string">&#x27;OILPRICE&#x27;</span>, <span class="number">10</span>);</span><br><span class="line">    <span class="title function_ invoke__">define</span>(<span class="string">&#x27;SPARKPRICE&#x27;</span>, <span class="number">4</span>);</span><br><span class="line">    <span class="variable">$totalamount</span> = <span class="variable">$tireqty</span> * TIREPRICE</span><br><span class="line">        + <span class="variable">$oilqty</span> * OILPRICE</span><br><span class="line">        + <span class="variable">$sparkqty</span> * SPARKPRICE;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;Subtotal: $&quot;</span> . <span class="title function_ invoke__">number_format</span>(<span class="variable">$totalamount</span>, <span class="number">2</span>) . <span class="string">&quot;&lt;br /&gt;&quot;</span>; <span class="comment">//数字样式保留两位小数</span></span><br><span class="line">    <span class="variable">$taxrate</span> = <span class="number">0.10</span>; <span class="comment">//the sales tax</span></span><br><span class="line">    <span class="variable">$totalamount</span> = <span class="variable">$totalamount</span> * (<span class="number">1</span> + <span class="variable">$taxrate</span>);</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;Total including tax: $&quot;</span> . <span class="title function_ invoke__">number_format</span>(<span class="variable">$totalamount</span>, <span class="number">2</span>) . <span class="string">&quot;&lt;/p&gt;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>试着输入123</p>
+<p><img src="https://raw.githubusercontent.com/lijianye521/images/master/image-20230123184017164.png" alt="image-20230123184017164"></p>
+
+            </div>
+
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/PHP/">#PHP</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/MYSQL/">#MYSQL</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/2023/01/15/%E6%95%B0%E6%8D%AE%E5%BA%93/"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">数据库</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP-and-MySQL-Web-Development"><span class="nav-text">PHP and MySQL Web Development</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-text">环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-web%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85"><span class="nav-text">1.web环境安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E7%8E%AF%E5%A2%83%E9%9B%86%E6%88%90%E5%8C%85"><span class="nav-text">2.环境集成包</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8php"><span class="nav-text">使用php</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E5%88%9B%E5%BB%BA%E8%80%81%E5%BC%8F%E8%A1%A8%E5%8D%95%E5%BC%80%E5%A7%8B"><span class="nav-text">从创建老式表单开始</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E8%A1%A8%E5%8D%95"><span class="nav-text">处理表单</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#php-%E6%A0%87%E7%AD%BE"><span class="nav-text">php 标签</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#xml%E6%A0%B7%E5%BC%8F"><span class="nav-text">xml样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9F%AD%E6%A0%B7%E5%BC%8F"><span class="nav-text">短样式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#php%E8%AF%AD%E5%8F%A5"><span class="nav-text">php语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E5%8A%A8%E6%80%81%E5%86%85%E5%AE%B9"><span class="nav-text">添加动态内容</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#date-%E5%87%BD%E6%95%B0"><span class="nav-text">date()函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE%E8%A1%A8%E5%8D%95%E5%8F%98%E9%87%8F"><span class="nav-text">访问表单变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A1%A8%E5%8D%95%E5%8F%98%E9%87%8F"><span class="nav-text">表单变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE%E5%B9%B6%E8%BE%93%E5%87%BA%E8%BF%99%E4%BA%9B%E5%8F%98%E9%87%8F"><span class="nav-text">访问并输出这些变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BF%9E%E6%8E%A5"><span class="nav-text">字符串连接</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-text">PHP数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E8%BD%AC%E5%8C%96"><span class="nav-text">类型转化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%AF%E5%8F%98%E5%8F%98%E9%87%8F"><span class="nav-text">可变变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A3%B0%E6%98%8E%E5%92%8C%E4%BD%BF%E7%94%A8%E5%B8%B8%E9%87%8F"><span class="nav-text">声明和使用常量</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">使用运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E5%AD%A6%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">数学运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">字符串运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">赋值运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">引用运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">比较运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AD%89%E4%BA%8E%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">等于运算符</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">逻辑运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">位运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">其他运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#new-%E5%92%8C-gt"><span class="nav-text">new 和 -&gt;</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%89%E5%85%83%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">三元运算符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%94%99%E8%AF%AF%E6%8A%91%E5%88%B6%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%88The-Error-Suppression-Operator%EF%BC%89"><span class="nav-text">错误抑制运算符（The Error Suppression Operator）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">执行运算符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">数组运算符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E8%BF%90%E7%AE%97%E7%AC%A6-instanceof"><span class="nav-text">类型运算符 instanceof</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%8C%E6%88%90%E6%95%B4%E4%B8%AA%E8%A1%A8%E5%8D%95"><span class="nav-text">完成整个表单</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2020</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">caiye</a>
+            
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.6.1</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/post-helper.js"></script>
+
+        
+            
+<script src="/js/libs/anime.min.js"></script>
+
+        
+        
+            
+<script src="/js/toc.js"></script>
+
+        
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
