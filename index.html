@@ -39,6 +39,22 @@
 
 
 <body>
+
+    <script>
+        // 弹出密码框
+        var password = prompt("因本博客现仅个人开发做笔记使用，若要访问请向本人申请权限");
+        
+        // 检查密码是否正确
+        if (password === "lijianye") {
+          // 密码正确，允许访问
+          alert("密码正确，欢迎访问本博客！");
+        } else {
+          // 密码错误，禁止访问
+          alert("密码错误，您没有权限访问本博客！");
+          window.location = "about:blank";
+        }
+      </script>
+      
 <div class="progress-bar-container">
     
 
