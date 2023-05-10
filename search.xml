@@ -4,6 +4,81 @@
   
     
     <entry>
+      <title>云计算综合实训1linux命令</title>
+      <link href="/2023/05/10/%E4%BA%91%E8%AE%A1%E7%AE%97%E7%BB%BC%E5%90%88%E5%AE%9E%E8%AE%AD1linux%E5%91%BD%E4%BB%A4/"/>
+      <url>/2023/05/10/%E4%BA%91%E8%AE%A1%E7%AE%97%E7%BB%BC%E5%90%88%E5%AE%9E%E8%AE%AD1linux%E5%91%BD%E4%BB%A4/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Linux常用命令"><a href="#Linux常用命令" class="headerlink" title="Linux常用命令"></a>Linux常用命令</h2><blockquote><p>本人曾经接触过linux，也做过相应的前端开发，所以实验平台选择的是我众多服务器中的一台linux服务器，为了舍弃繁琐的输入 我直接用了echo 再用管道符将前一命令输入作为后面命令输出</p></blockquote><p>实验平台</p><blockquote><p><img src="https://raw.githubusercontent.com/lijianye521/images/master/image-20230509234727785.png" alt="image-20230509234727785"></p></blockquote><h3 id="1-修改下root密码，变为123456"><a href="#1-修改下root密码，变为123456" class="headerlink" title="1.修改下root密码，变为123456"></a>1.修改下root密码，变为123456</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;123456&quot; | passwd --stdin root</span><br></pre></td></tr></table></figure><p><img src="https://raw.githubusercontent.com/lijianye521/images/master/image-20230509235748480.png" alt="image-20230509235748480"></p><h3 id="2-创建一个用户，用户的名字就是大家自己名字的首字母简拼（lijianye"><a href="#2-创建一个用户，用户的名字就是大家自己名字的首字母简拼（lijianye" class="headerlink" title="2.创建一个用户，用户的名字就是大家自己名字的首字母简拼（lijianye)"></a>2.创建一个用户，用户的名字就是大家自己名字的首字母简拼（lijianye)</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd ljy</span><br></pre></td></tr></table></figure><p><img src="https://raw.githubusercontent.com/lijianye521/images/master/image-20230509235809319.png" alt="image-20230509235809319"></p><h3 id="3-为创建的这个用户给个密码123456"><a href="#3-为创建的这个用户给个密码123456" class="headerlink" title="3.为创建的这个用户给个密码123456"></a>3.为创建的这个用户给个密码123456</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;123456&quot; | passwd --stdin ljy</span><br></pre></td></tr></table></figure><p><img src="https://raw.githubusercontent.com/lijianye521/images/master/image-20230509235854582.png" alt="image-20230509235854582"></p><h3 id="4-切换到lijianye这个用户下"><a href="#4-切换到lijianye这个用户下" class="headerlink" title="4.切换到lijianye这个用户下"></a>4.切换到lijianye这个用户下</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su - ljy</span><br></pre></td></tr></table></figure><p><img src="https://raw.githubusercontent.com/lijianye521/images/master/image-20230509235930226.png" alt="image-20230509235930226"></p><h3 id="5-切换到lijianye这个家目录下"><a href="#5-切换到lijianye这个家目录下" class="headerlink" title="5.切换到lijianye这个家目录下"></a>5.切换到lijianye这个家目录下</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~</span><br></pre></td></tr></table></figure><p><img src="https://raw.githubusercontent.com/lijianye521/images/master/image-20230510000044176.png" alt="image-20230510000044176"></p><h3 id="6-复制-x2F-etc-x2F-passwd文件到张三的加目录下并且改名为123-txt"><a href="#6-复制-x2F-etc-x2F-passwd文件到张三的加目录下并且改名为123-txt" class="headerlink" title="6.复制&#x2F;etc&#x2F;passwd文件到张三的加目录下并且改名为123.txt"></a>6.复制&#x2F;etc&#x2F;passwd文件到张三的加目录下并且改名为123.txt</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /etc/passwd ~/123.txt</span><br></pre></td></tr></table></figure><h3 id="7-查看一下这个123-txt的内容"><a href="#7-查看一下这个123-txt的内容" class="headerlink" title="7.查看一下这个123.txt的内容"></a>7.查看一下这个123.txt的内容</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~/123.txt</span><br></pre></td></tr></table></figure><p><img src="https://raw.githubusercontent.com/lijianye521/images/master/image-20230510000339088.png" alt="image-20230510000339088"></p><h3 id="8-查看下123-txt的文件大小和创建时间"><a href="#8-查看下123-txt的文件大小和创建时间" class="headerlink" title="8.查看下123.txt的文件大小和创建时间"></a>8.查看下123.txt的文件大小和创建时间</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -lh ~/123.txt</span><br></pre></td></tr></table></figure><p>另外又把vm虚拟机下了回来，模仿老师的步骤建立了一个centos8的操作系统的虚拟机</p><p>​                               </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 云计算 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 云计算 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>docker配置mysql</title>
+      <link href="/2023/05/10/docker%E9%85%8D%E7%BD%AEmysql/"/>
+      <url>/2023/05/10/docker%E9%85%8D%E7%BD%AEmysql/</url>
+      
+        <content type="html"><![CDATA[<h4 id=""><a href="#" class="headerlink" title=""></a></h4><h1 id="Docker安装配置mysql"><a href="#Docker安装配置mysql" class="headerlink" title="Docker安装配置mysql"></a>Docker安装配置mysql</h1><p>1.拉取docker镜像 并创建容器</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql:8.0</span><br><span class="line">docker run --name mysqlDatabase -e MYSQL_ROOT_PASSWORD=123456 -e MYSQL_DATABASE=mydatabase -e MYSQL_USER=admin -e MYSQL_PASSWORD=123456 -p 3306:3306 -d mysql:8.0</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>2.拉取 phpMyAdmin 镜像</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull phpmyadmin/phpmyadmin</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>使用phpmyadmin打开容器的数据库</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run --name phpmyadmin --link mysqlDatabase:db -p 80:80 -d phpmyadmin/phpmyadmin</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>这个先不急 以后会用 </p><h2 id="内网穿透"><a href="#内网穿透" class="headerlink" title="内网穿透"></a>内网穿透</h2><p>参考了这篇博客 <a class="link"   href="https://gitee.com/spoto/natserver" >自建内网穿透服务器: 通过FRP，Zerotier等几种通过自己服务器实现内网穿透的教程 (gitee.com)<i class="fas fa-external-link-alt"></i></a></p><p>我真的会谢</p><p>一天真的就被着破网络搞得头大，原来docker默认的是桥接模式</p><p>最后发现原来配置要用host模式，我真的是无语</p><p>我的配置文件frpc.ini在e盘</p><blockquote><p>–network&#x3D;host </p><p>一个小小的参数 拯救了代码的红色   不改成host模式  本地主机就只会拒绝外面访问docker容器</p></blockquote><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name frpc --restart=always --network=host -v E:\\frpc.ini:/etc/frp/frpc.ini snowdreamtech/frpc</span><br></pre></td></tr></table></figure><h2 id="部署我们团队的应用"><a href="#部署我们团队的应用" class="headerlink" title="部署我们团队的应用"></a>部署我们团队的应用</h2><p>部署到30端口</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it --name my-node-app -v E:\docker\demo-app:/app -p 3000:3000 -w /app node bash</span><br></pre></td></tr></table></figure><p>使用php部署一个班级文件收集表</p><h2 id="php"><a href="#php" class="headerlink" title="php"></a>php</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name uploadwebsite  -v E:\docker\uploadwebsite:/<span class="keyword">var</span>/www/html -p <span class="number">6580</span>:<span class="number">80</span> -w /<span class="keyword">var</span>/www/html php php -S <span class="number">0.0</span>.<span class="number">0.0</span>:<span class="number">80</span>  </span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据库 docker </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>docker环境配置</title>
+      <link href="/2023/05/10/docker%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+      <url>/2023/05/10/docker%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</url>
+      
+        <content type="html"><![CDATA[<h4 id=""><a href="#" class="headerlink" title=""></a></h4><h1 id="本地跑3D智慧医疗"><a href="#本地跑3D智慧医疗" class="headerlink" title="本地跑3D智慧医疗"></a>本地跑3D智慧医疗</h1><blockquote><p>亲身感觉和ai studio差不多，本地运转的时候我的内存飙到24g（还好我是32g内存），感觉ai studio也是运用了类似docker虚拟化的技术为每一个用户提供了一个镜像环境，因为磁盘100g刚好就是镜像文件+环境的大小。</p><p><strong>所以本地跑的好处是在训练速度差不多的情况下，训练时间变成了无限。而且对待各个文件好操作一点</strong></p></blockquote><h2 id="docker-环境配置"><a href="#docker-环境配置" class="headerlink" title="docker 环境配置"></a>docker 环境配置</h2><blockquote><p>c盘空间足够的可以忽略2 3 4 步骤</p></blockquote><h3 id="1-下载docker-desktop"><a href="#1-下载docker-desktop" class="headerlink" title="1.下载docker desktop"></a>1.下载docker desktop</h3><p>因为本机是window10，有些命令无法运行，所以用docker desktop是一个不错的选择</p><p>自己找教程</p><h3 id="2-更改镜像存储路径"><a href="#2-更改镜像存储路径" class="headerlink" title="2.更改镜像存储路径"></a>2.更改镜像存储路径</h3><p>放在c盘这谁受得了,放E盘</p><p>win 10 的 docker-desktop 在启动的时候，会启动两个 <code>wsl 子系统</code>: <code>docker-desktop</code> 以及 <code>docker-desktop-data</code><br>输入命令 <code>wsl -l -v --all</code> 可以看到这两个子系统</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wsl --shutdown</span><br><span class="line">wsl --export docker-desktop-data E:\data\docker\docker-desktop-data.tar</span><br><span class="line"></span><br><span class="line">wsl --export docker-desktop E:\data\docker\docker-desktop.tar</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>可以看到 在 <code>E:\data\docker</code> 已存放了这两个子系统的 tar 包</p><h3 id="3-注销子系统"><a href="#3-注销子系统" class="headerlink" title="3.注销子系统"></a>3.注销子系统</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wsl --unregister docker-desktop</span><br><span class="line">wsl --unregister docker-desktop-data</span><br></pre></td></tr></table></figure><h3 id="4-重新导入"><a href="#4-重新导入" class="headerlink" title="4.重新导入"></a>4.重新导入</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wsl --import docker-desktop-data E:\data\docker\docker-desktop-data E:\data\docker\docker-desktop-data.tar --version 2</span><br><span class="line"></span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wsl --import docker-desktop E:\data\docker\docker-desktop E:\data\docker\docker-desktop.tar --version 2</span><br><span class="line"></span><br></pre></td></tr></table></figure><h3 id="5-docker安装环境"><a href="#5-docker安装环境" class="headerlink" title="5.docker安装环境"></a>5.docker安装环境</h3><p>我的建议是去搞个加速器（美国梯子好一点，亲测）</p><p>这个地址是官方给的，我从官方的docker hub下面扒了一个最新的</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull paddlecloud/paddleseg:2.6-gpu-cuda11.2-cudnn8-latest</span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="如何运转这个项目代码"><a href="#如何运转这个项目代码" class="headerlink" title="如何运转这个项目代码"></a>如何运转这个项目代码</h2><p>那是相当煎熬呀</p><p>挂载命令</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it --name paddle_project --gpus all -v E:\final:/paddle_project -p 8888:8888 paddlecloud/paddleseg:2.6-gpu-cuda11.2-cudnn8-latest /bin/bash</span><br></pre></td></tr></table></figure><p>下载jupyter</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install jupyter</span><br></pre></td></tr></table></figure><blockquote><p>运行pip install 会出一些警告 直接不用管 耐心等待</p></blockquote><p>这个是在容器中使用jupyter打开官方项目的方法</p><p><strong>（不知道为啥 下面这个指令需要手动输入 很烦）</strong></p><p>启动容器后直接在终端里输入下面这些就好</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter notebook --ip 0.0.0.0 --port 8888 --no-browser --allow-root --NotebookApp.token=&#x27;&#x27; --NotebookApp.password=&#x27;&#x27; --notebook-dir=/paddle_project</span><br></pre></td></tr></table></figure><p><a class="link"   href="http://localhost:8888/" >http://localhost:8888<i class="fas fa-external-link-alt"></i></a></p><p>输入上面这个网址就可以打开容器里的jupyter用镜像里的环境操作容器里的文件了</p><p>然后剩下的和ai studio里面的一模一样</p><blockquote><p>内存空间不用担心，镜像文件在e盘，那个盘1t，随便造</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> paddleseg </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> paddleseg docker </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>大创代码</title>
       <link href="/2023/03/29/%E5%A4%A7%E5%88%9B%E4%BB%A3%E7%A0%81/"/>
       <url>/2023/03/29/%E5%A4%A7%E5%88%9B%E4%BB%A3%E7%A0%81/</url>
