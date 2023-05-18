@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="caiye">
+    
+    <title>
+        
+            云计算综合实训2kvm学习 |
+        
+        業易6
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.png">
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en","path":"search.xml"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true},"style":{"primary_color":"#0066cc","logo":"/images/logo.png","favicon":"/images/logo.png","avatar":"/images/logo.png","font_size":null,"font_family":null,"hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"好好学习，天天向上","font_color":null,"hitokoto":false},"scroll":{"progress_bar":false,"percent":false}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":false,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":false,"wordcount":false,"min2read":false},"img_align":"left","copyright_info":false},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
+    KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original article title","author":"Original article author","link":"Original article link"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/images/logo.png">
+                </a>
+            
+            <a class="logo-title" href="/">
+               業易6
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                博客日志
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                链接
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/%E7%A7%81%E4%BA%BA%E5%8C%BA%E5%9F%9F"
+                            >
+                                私人区
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">博客日志</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">链接</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/%E7%A7%81%E4%BA%BA%E5%8C%BA%E5%9F%9F">私人区</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">云计算综合实训2kvm学习</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/images/logo.png">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">caiye</span>
+                            
+                                <span class="author-label">Lv3</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2023-05-18 23:02:59</span>
+        <span class="mobile">2023-05-18 23:02</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-05-18 23:03:52</span>
+    </span>
+    
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E4%BA%91%E8%AE%A1%E7%AE%97/">云计算</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/">云计算</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <h1 id="云计算实验2虚拟机配置"><a href="#云计算实验2虚拟机配置" class="headerlink" title="云计算实验2虚拟机配置"></a>云计算实验2虚拟机配置</h1><h2 id="1-下载iso文件后安装centos7"><a href="#1-下载iso文件后安装centos7" class="headerlink" title="1.下载iso文件后安装centos7"></a>1.下载iso文件后安装centos7</h2><p>设置密码为123456</p>
+<p><img src="https://raw.githubusercontent.com/lijianye521/images/master/image-20230516142816152.png" alt="image-20230516142816152"></p>
+<p>进入网络配置目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/sysconfig/network-scripts/</span><br><span class="line">ip addr</span><br><span class="line">ls</span><br><span class="line">vi ifcfg-ens33</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-确认ip-网关-等信息"><a href="#2-确认ip-网关-等信息" class="headerlink" title="2.确认ip 网关 等信息"></a>2.确认ip 网关 等信息</h2><p><img src="https://raw.githubusercontent.com/lijianye521/images/master/image-20230516144859898.png" alt="image-20230516144859898"></p>
+<p>配置的网络ip地址为192.168.150.251</p>
+<h2 id="3-使用ssh远程连接"><a href="#3-使用ssh远程连接" class="headerlink" title="3.使用ssh远程连接"></a>3.使用ssh远程连接</h2><p><img src="https://raw.githubusercontent.com/lijianye521/images/master/image-20230516155402269.png" alt="image-20230516155402269"></p>
+<p>，使用sftp协议传输文件，将镜像文件传输到opt文件夹里面去</p>
+<p><img src="https://raw.githubusercontent.com/lijianye521/images/master/image-20230516155858595.png" alt="image-20230516155858595"></p>
+<h2 id="4-关闭防火墙并装组件"><a href="#4-关闭防火墙并装组件" class="headerlink" title="4.关闭防火墙并装组件"></a>4.关闭防火墙并装组件</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">systemctl disable firewalld.service</span><br><span class="line"></span><br><span class="line">vi /etc/selinux/config</span><br><span class="line"></span><br><span class="line">systemctl status firewalld</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-1安装虚拟化组件"><a href="#4-1安装虚拟化组件" class="headerlink" title="4.1安装虚拟化组件"></a>4.1安装虚拟化组件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">yum -y install libvirt virt-install wget net-tools bridge-uti</span><br><span class="line"></span><br><span class="line">yum -y install qemu-kvm qemu-kvm-tool</span><br><span class="line"></span><br><span class="line">systemctl start libvirtd</span><br><span class="line"></span><br><span class="line">systemctl enable libvirtd</span><br><span class="line">安装vim</span><br><span class="line">yum -y install vim</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-2网桥搭建"><a href="#4-2网桥搭建" class="headerlink" title="4.2网桥搭建"></a>4.2网桥搭建</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/sysconfig/network-scripts/</span><br><span class="line">cp ifcfg-ens33 ifcfg-br0</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/lijianye521/images/master/image-20230518221106770.png" alt="image-20230518221106770"></p>
+<p><img src="https://raw.githubusercontent.com/lijianye521/images/master/image-20230516171155374.png" alt="image-20230516171155374"></p>
+<h2 id="5-VNC环境搭建"><a href="#5-VNC环境搭建" class="headerlink" title="5.VNC环境搭建"></a>5.VNC环境搭建</h2><p>安装vnc服务</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install tigervnc tigervnc-server</span><br></pre></td></tr></table></figure>
+
+<p>vnc 服务配置——宿主机远程控制</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cp /lib/systemd/system/vncserver@.service /etc/systemd/system/vncserver@:1.service</span><br><span class="line"></span><br><span class="line">编辑刚刚复制得到的文件，将文件中的&lt;USER&gt;修改为 VNC Client(或者 VNC Viewer)连接</span><br><span class="line">的账号，我只设置一个用户 root，多用户再增加对应的 vncserver@:2.service</span><br><span class="line"></span><br><span class="line">vim /etc/systemd/system/vncserver@:1.service</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/lijianye521/images/master/image-20230518221620546.png" alt="image-20230518221620546"></p>
+<p>设置 vnc 连接密码,输入命令 vncpasswd 以后连续输入两次密码，然后直接连 续回车</p>
+<p>设置开机自启动</p>
+<p>systemctl start vncserver@:1.service </p>
+<p>systemctl enable vncserver@:1.service</p>
+<p>vncserver</p>
+<p><img src="https://raw.githubusercontent.com/lijianye521/images/master/image-20230518221941253.png" alt="image-20230518221941253"></p>
+<h2 id="6-创建虚拟机VM01"><a href="#6-创建虚拟机VM01" class="headerlink" title="6.创建虚拟机VM01"></a>6.创建虚拟机VM01</h2><h3 id="1-建立虚拟机"><a href="#1-建立虚拟机" class="headerlink" title="1.建立虚拟机"></a>1.建立虚拟机</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">virt-install --name vm01 --virt-type kvm --video vga --memory 1024 --vcpu 1 --disk size=8 --cdrom /opt/CentOS-7-x86_64-Minimal-2009.iso --network network=default --graphics vnc,listen=0.0.0.0,port=5900,password=123456 --noautoconsole</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/lijianye521/images/master/image-20230518222304700.png" alt="image-20230518222304700"></p>
+<h3 id="2-virsh-vncdisplay-vm01重新开一下"><a href="#2-virsh-vncdisplay-vm01重新开一下" class="headerlink" title="2.virsh vncdisplay vm01重新开一下"></a>2.virsh vncdisplay vm01重新开一下</h3><p><img src="https://raw.githubusercontent.com/lijianye521/images/master/image-20230518223540946.png" alt="image-20230518223540946"></p>
+<h3 id="3-刚开始注意是没有地址的"><a href="#3-刚开始注意是没有地址的" class="headerlink" title="3.刚开始注意是没有地址的"></a>3.刚开始注意是没有地址的</h3><p><img src="https://raw.githubusercontent.com/lijianye521/images/master/image-20230518223817867.png" alt="image-20230518223817867"></p>
+<p>需要再去配置一下</p>
+<h3 id="4-重启网络"><a href="#4-重启网络" class="headerlink" title="4.重启网络"></a>4.重启网络</h3><p><img src="https://raw.githubusercontent.com/lijianye521/images/master/image-20230518224214166.png" alt="image-20230518224214166"></p>
+<h3 id="5-实验完成"><a href="#5-实验完成" class="headerlink" title="5.实验完成"></a>5.实验完成</h3><p><img src="https://raw.githubusercontent.com/lijianye521/images/master/image-20230518224318054.png" alt="image-20230518224318054"></p>
+
+            </div>
+
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/">#云计算</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/2023/05/17/%E4%BA%91%E8%AE%A1%E7%AE%97%E5%AE%9E%E9%AA%8C/"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">云计算实验</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%91%E8%AE%A1%E7%AE%97%E5%AE%9E%E9%AA%8C2%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%85%8D%E7%BD%AE"><span class="nav-text">云计算实验2虚拟机配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E4%B8%8B%E8%BD%BDiso%E6%96%87%E4%BB%B6%E5%90%8E%E5%AE%89%E8%A3%85centos7"><span class="nav-text">1.下载iso文件后安装centos7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E7%A1%AE%E8%AE%A4ip-%E7%BD%91%E5%85%B3-%E7%AD%89%E4%BF%A1%E6%81%AF"><span class="nav-text">2.确认ip 网关 等信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E4%BD%BF%E7%94%A8ssh%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5"><span class="nav-text">3.使用ssh远程连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99%E5%B9%B6%E8%A3%85%E7%BB%84%E4%BB%B6"><span class="nav-text">4.关闭防火墙并装组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E5%8C%96%E7%BB%84%E4%BB%B6"><span class="nav-text">4.1安装虚拟化组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2%E7%BD%91%E6%A1%A5%E6%90%AD%E5%BB%BA"><span class="nav-text">4.2网桥搭建</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-VNC%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="nav-text">5.VNC环境搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BAVM01"><span class="nav-text">6.创建虚拟机VM01</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%BB%BA%E7%AB%8B%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="nav-text">1.建立虚拟机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-virsh-vncdisplay-vm01%E9%87%8D%E6%96%B0%E5%BC%80%E4%B8%80%E4%B8%8B"><span class="nav-text">2.virsh vncdisplay vm01重新开一下</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%88%9A%E5%BC%80%E5%A7%8B%E6%B3%A8%E6%84%8F%E6%98%AF%E6%B2%A1%E6%9C%89%E5%9C%B0%E5%9D%80%E7%9A%84"><span class="nav-text">3.刚开始注意是没有地址的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E9%87%8D%E5%90%AF%E7%BD%91%E7%BB%9C"><span class="nav-text">4.重启网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E5%AE%9E%E9%AA%8C%E5%AE%8C%E6%88%90"><span class="nav-text">5.实验完成</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2020</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">caiye</a>
+            
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.6.1</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/post-helper.js"></script>
+
+        
+            
+<script src="/js/libs/anime.min.js"></script>
+
+        
+        
+            
+<script src="/js/toc.js"></script>
+
+        
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
