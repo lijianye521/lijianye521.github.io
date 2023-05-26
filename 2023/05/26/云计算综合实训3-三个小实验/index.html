@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="caiye">
+    
+    <title>
+        
+            云计算综合实训3-三个小实验 |
+        
+        業易6
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.png">
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en","path":"search.xml"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true},"style":{"primary_color":"#0066cc","logo":"/images/logo.png","favicon":"/images/logo.png","avatar":"/images/logo.png","font_size":null,"font_family":null,"hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"好好学习，天天向上","font_color":null,"hitokoto":false},"scroll":{"progress_bar":false,"percent":false}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":false,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":false,"wordcount":false,"min2read":false},"img_align":"left","copyright_info":false},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
+    KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original article title","author":"Original article author","link":"Original article link"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/images/logo.png">
+                </a>
+            
+            <a class="logo-title" href="/">
+               業易6
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                博客日志
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                链接
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/%E7%A7%81%E4%BA%BA%E5%8C%BA%E5%9F%9F"
+                            >
+                                私人区
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">博客日志</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">链接</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/%E7%A7%81%E4%BA%BA%E5%8C%BA%E5%9F%9F">私人区</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">云计算综合实训3-三个小实验</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/images/logo.png">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">caiye</span>
+                            
+                                <span class="author-label">Lv3</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2023-05-26 12:00:07</span>
+        <span class="mobile">2023-05-26 12:00</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-05-26 12:02:02</span>
+    </span>
+    
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E4%BA%91%E8%AE%A1%E7%AE%97/">云计算</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/">云计算</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <h1 id="云计算综合实训3-若干个小实验"><a href="#云计算综合实训3-若干个小实验" class="headerlink" title="云计算综合实训3 若干个小实验"></a>云计算综合实训3 若干个小实验</h1><h3 id="1-配置服务器组的负载均衡"><a href="#1-配置服务器组的负载均衡" class="headerlink" title="1.配置服务器组的负载均衡"></a>1.配置服务器组的负载均衡</h3><p><img src="https://raw.githubusercontent.com/lijianye521/images/master/image-20230523145753859-1685073629412-1.png" alt="image-20230523145753859"></p>
+<p> 点击左侧导航栏处的 <strong>云产品资源</strong>，查看 <strong>云服务器ECS-1</strong> 和 <strong>云服务器ECS-2</strong> 的相关信息。</p>
+<h3 id="2-输入弹性IP"><a href="#2-输入弹性IP" class="headerlink" title="2.输入弹性IP"></a>2.输入弹性IP</h3><ol start="2">
+<li>打开浏览器，在输入框中输入 <strong>云产品资源</strong> 提供的 <strong>云服务器ECS-1</strong> 的 <strong>弹性IP</strong> ，页面如下图：</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/lijianye521/images/master/image-20230523145541592-1685073629413-2.png" alt="image-20230523145541592"></p>
+<p>配置会话保持并调整1:3的权重。</p>
+<h3 id="3-关闭一个实例"><a href="#3-关闭一个实例" class="headerlink" title="3.关闭一个实例"></a>3.关闭一个实例</h3><p><img src="https://raw.githubusercontent.com/lijianye521/images/master/image-20230523150304495-1685073629413-3.png" alt="image-20230523150304495"></p>
+<h3 id="4-现在就只能显示一个了，实验成功"><a href="#4-现在就只能显示一个了，实验成功" class="headerlink" title="4.现在就只能显示一个了，实验成功"></a>4.现在就只能显示一个了，实验成功</h3><p><img src="https://raw.githubusercontent.com/lijianye521/images/master/image-20230523150335433-1685073629413-4.png" alt="image-20230523150335433"></p>
+<h1 id="半小时搭建个人网盘"><a href="#半小时搭建个人网盘" class="headerlink" title="半小时搭建个人网盘"></a>半小时搭建个人网盘</h1><h3 id="1-运行cloudreve"><a href="#1-运行cloudreve" class="headerlink" title="1.运行cloudreve"></a>1.运行cloudreve</h3><p><img src="https://raw.githubusercontent.com/lijianye521/images/master/image-20230523155020931-1685073629413-6.png" alt="image-20230523155020931"></p>
+<h3 id="2-安装ossfs"><a href="#2-安装ossfs" class="headerlink" title="2.安装ossfs"></a>2.安装ossfs</h3><p>ossfs能让您在Linux系统中，将对象存储OSS的存储空间（Bucket）挂载到本地文件系统中，您能够像操作本地文件一样操作OSS的对象（Object），实现数据的共享。</p>
+<p>执行如下命令，下载ossfs安装包。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://gosspublic.alicdn.com/ossfs/ossfs_1.80.6_centos8.0_x86_64.rpm</span><br></pre></td></tr></table></figure>
+
+<p>下载完毕后，执行如下命令，安装ossfs。</p>
+<p>2.1 先更换yum源（Centos8 yum 官方源下线）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#1.先删除系统内过期的.repo文件</span><br><span class="line">rm -f /etc/yum.repos.d/*</span><br><span class="line"></span><br><span class="line">#2.下载新的 CentOS-Base.repo 到 /etc/yum.repos.d/</span><br><span class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-vault-8.5.2111.repo</span><br><span class="line"></span><br><span class="line">#3.运行 yum makecache 生成缓存</span><br><span class="line">yum clean all &amp;&amp; yum makecache</span><br></pre></td></tr></table></figure>
+
+<p>2.2 安装ossfs</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y ./ossfs_1.80.6_centos8.0_x86_64.rpm</span><br></pre></td></tr></table></figure>
+
+<p>返回结果如下所示，表示ossfs安装成功</p>
+<p><img src="https://raw.githubusercontent.com/lijianye521/images/master/image-20230523155349267-1685073629413-5.png" alt="image-20230523155349267"></p>
+<h3 id="3-挂载oss"><a href="#3-挂载oss" class="headerlink" title="3.挂载oss"></a>3.挂载oss</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo adc-oss-labs01969:LTAI5tFcH5wJ3YZiay6ayxS6:aBmeIFh4nGs0WEGw6rviu6OPxaLBjt &gt; /etc/passwd-ossfs</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/lijianye521/images/master/image-20230523155717223-1685073629413-8.png" alt="image-20230523155717223"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ossfs adc-oss-labs01969 oss -o url=oss-cn-shanghai-internal.aliyuncs.com</span><br></pre></td></tr></table></figure>
+
+<p>查看是否挂载成功</p>
+<p><img src="https://raw.githubusercontent.com/lijianye521/images/master/image-20230523160059825-1685073629413-7.png" alt="image-20230523160059825"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#! /bin/bash</span><br><span class="line">#</span><br><span class="line"># ossfs      Automount Aliyun OSS Bucket in the specified direcotry.</span><br><span class="line">#</span><br><span class="line"># chkconfig: 2345 90 10</span><br><span class="line"># description: Activates/Deactivates ossfs configured to start at boot time.</span><br><span class="line"></span><br><span class="line">ossfs adc-oss-labs01969 oss -o url=oss-cn-shanghai-internal.aliyuncs.com -oallow_other</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-配置个人网盘"><a href="#4-配置个人网盘" class="headerlink" title="4.配置个人网盘"></a>4.配置个人网盘</h3><p><img src="https://raw.githubusercontent.com/lijianye521/images/master/image-20230523160714379-1685073629413-9.png" alt="image-20230523160714379"></p>
+<p>上传个游戏gif图片</p>
+<p><img src="https://raw.githubusercontent.com/lijianye521/images/master/image-20230523160920459-1685073629413-10.png" alt="image-20230523160920459"></p>
+<p><img src="https://raw.githubusercontent.com/lijianye521/images/master/image-20230523161230770-1685073629413-11.png" alt="image-20230523161230770"></p>
+<p>在阿里云的桶中找到了图片  </p>
+<p>实验完成</p>
+<h1 id="Docker安装和配置"><a href="#Docker安装和配置" class="headerlink" title="Docker安装和配置"></a>Docker安装和配置</h1><h3 id="1-安装docker"><a href="#1-安装docker" class="headerlink" title="1.安装docker"></a>1.安装docker</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yum install -y yum-utils device-mapper-persistent-data lvm2</span><br><span class="line"></span><br><span class="line">yum install -y jq</span><br><span class="line"></span><br><span class="line">yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo </span><br></pre></td></tr></table></figure>
+
+<p>源添加成功后，我们可以使用yum list命令查看当前的docker源中支持的安装包版本列表。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum list docker-ce --showduplicates | sort -r</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/lijianye521/images/master/image-20230523163544700.png" alt="image-20230523163544700"></p>
+<p>安装docker应用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y docker-ce.x86_64 3:20.10.16-3.el7 </span><br></pre></td></tr></table></figure>
+
+<p>启动docker</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start docker.service</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-Docker的配置"><a href="#2-Docker的配置" class="headerlink" title="2.Docker的配置"></a>2.Docker的配置</h3><ol>
+<li>镜像源的配置</li>
+</ol>
+<p>通过docker拉取镜像时，默认会通过国外的镜像源进行下载，因此可以配置国内的镜像源以加快下载速度。修改docker的镜像源时，我们使用vi编辑文件 &#x2F;etc&#x2F;docker&#x2F;daemon.json 。注意使用vi编辑器时：</p>
+<ol>
+<li>需要先按i键进入编辑模式。</li>
+<li>编辑完成之后按esc退出编辑模式。</li>
+<li>然后按大写的ZZ保存并退出vi。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   &quot;registry-mirrors&quot;:[&quot;https://[1452471854402729].mirror.aliyuncs.com&quot;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>设置自启动</p>
+<p><img src="https://raw.githubusercontent.com/lijianye521/images/master/image-20230523164226764.png" alt="image-20230523164226764"></p>
+<h3 id="3-Docker的快速上手"><a href="#3-Docker的快速上手" class="headerlink" title="3.Docker的快速上手"></a>3.Docker的快速上手</h3><p>在前面的小节中我们介绍了Docker 的安装的配置，接下来为大家介绍一些Docker的快速上手命令和用法。</p>
+<p>1.启动hello-world</p>
+<p>Docker安装配置成功之后，我们就可以通过docker run命令启动轻量级的容器虚拟机。我们执行如下命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run hello-world</span><br></pre></td></tr></table></figure>
+
+<p>会发现屏幕上输出了Hello from Docker!信息。这个信息输出表示hello-world容器虚拟机启动成功。</p>
+<p>2.启动长期运行的bash容器</p>
+<p>在上一个步骤中，我们演示了docker最基本的用法，这种方式启动的hello-world容器，在启动之后会输出文字，在输出之后容器就会结束。</p>
+<p>接下来我们来启动一个可以长期运行的bash容器。我们在命令行中输入如下命令，运行成功后会看到命令提示行变为bash，这表示容器虚拟机已经持续运行。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it bash</span><br></pre></td></tr></table></figure>
+
+<p>3.bash容器的退出</p>
+<p>在运行的bash容器中我们可以使用一些基本的linux命令，如pwd，ls等</p>
+<p><img src="https://raw.githubusercontent.com/lijianye521/images/master/image-20230523164525270.png" alt="image-20230523164525270"></p>
+<p>4.容器的查找和下载</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker search ubuntu</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/lijianye521/images/master/image-20230523164655884.png" alt="image-20230523164655884"></p>
+<p>2.查找容器的版本信息</p>
+<p>在找到所需要的容器镜像的名称之后，通常需要进一步在docker的镜像源中查找该镜像的版本列表。由于docker本身没有直接提供查看版本的功能，因此在这里我们为大家提供了一个可以查看镜像版本的简单脚本docker-tags。我们生成docker-tags脚本并加入以下内容 ，</p>
+<p>注意使用vi编辑器时：</p>
+<ol>
+<li>需要先按i键进入编辑模式。</li>
+<li>编辑完成之后按esc退出编辑模式。</li>
+<li>然后按大写的ZZ保存并退出vi</li>
+</ol>
+<p>chmod 777 docker-tags  .&#x2F;docker-tags ubuntu</p>
+<p>当镜像源已经拉取到本地之后，我们可以通过docker images命令来查看已经拉取到的本地镜像。</p>
+<p>然后下载ubuntu镜像 <img src="https://raw.githubusercontent.com/lijianye521/images/master/image-20230523170155752.png" alt="image-20230523170155752"></p>
+<p>实验完成</p>
+
+            </div>
+
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/">#云计算</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/2023/05/18/%E4%BA%91%E8%AE%A1%E7%AE%97%E7%BB%BC%E5%90%88%E5%AE%9E%E8%AE%AD2kvm%E5%AD%A6%E4%B9%A0/"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">云计算综合实训2kvm学习</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%91%E8%AE%A1%E7%AE%97%E7%BB%BC%E5%90%88%E5%AE%9E%E8%AE%AD3-%E8%8B%A5%E5%B9%B2%E4%B8%AA%E5%B0%8F%E5%AE%9E%E9%AA%8C"><span class="nav-text">云计算综合实训3 若干个小实验</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E9%85%8D%E7%BD%AE%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BB%84%E7%9A%84%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1"><span class="nav-text">1.配置服务器组的负载均衡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%BE%93%E5%85%A5%E5%BC%B9%E6%80%A7IP"><span class="nav-text">2.输入弹性IP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%85%B3%E9%97%AD%E4%B8%80%E4%B8%AA%E5%AE%9E%E4%BE%8B"><span class="nav-text">3.关闭一个实例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E7%8E%B0%E5%9C%A8%E5%B0%B1%E5%8F%AA%E8%83%BD%E6%98%BE%E7%A4%BA%E4%B8%80%E4%B8%AA%E4%BA%86%EF%BC%8C%E5%AE%9E%E9%AA%8C%E6%88%90%E5%8A%9F"><span class="nav-text">4.现在就只能显示一个了，实验成功</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%8A%E5%B0%8F%E6%97%B6%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%9B%98"><span class="nav-text">半小时搭建个人网盘</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E8%BF%90%E8%A1%8Ccloudreve"><span class="nav-text">1.运行cloudreve</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%AE%89%E8%A3%85ossfs"><span class="nav-text">2.安装ossfs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%8C%82%E8%BD%BDoss"><span class="nav-text">3.挂载oss</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E9%85%8D%E7%BD%AE%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%9B%98"><span class="nav-text">4.配置个人网盘</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE"><span class="nav-text">Docker安装和配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85docker"><span class="nav-text">1.安装docker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Docker%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="nav-text">2.Docker的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Docker%E7%9A%84%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B"><span class="nav-text">3.Docker的快速上手</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2020</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">caiye</a>
+            
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.6.1</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/post-helper.js"></script>
+
+        
+            
+<script src="/js/libs/anime.min.js"></script>
+
+        
+        
+            
+<script src="/js/toc.js"></script>
+
+        
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
