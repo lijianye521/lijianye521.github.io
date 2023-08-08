@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="caiye">
+    
+    <title>
+        
+            JWT学习--登录逻辑实现 |
+        
+        業易6
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.png">
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en","path":"search.xml"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true},"style":{"primary_color":"#0066cc","logo":"/images/logo.png","favicon":"/images/logo.png","avatar":"/images/logo.png","font_size":null,"font_family":null,"hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"好好学习，天天向上","font_color":null,"hitokoto":false},"scroll":{"progress_bar":false,"percent":false}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":false,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":false,"wordcount":false,"min2read":false},"img_align":"left","copyright_info":false},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
+    KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original article title","author":"Original article author","link":"Original article link"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/images/logo.png">
+                </a>
+            
+            <a class="logo-title" href="/">
+               業易6
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                博客日志
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                链接
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/%E7%A7%81%E4%BA%BA%E5%8C%BA%E5%9F%9F"
+                            >
+                                私人区
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">博客日志</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">链接</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/%E7%A7%81%E4%BA%BA%E5%8C%BA%E5%9F%9F">私人区</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">JWT学习--登录逻辑实现</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/images/logo.png">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">caiye</span>
+                            
+                                <span class="author-label">Lv4</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2023-08-08 20:08:05</span>
+        <span class="mobile">2023-08-08 20:08</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-08-08 20:15:00</span>
+    </span>
+    
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93-JWT-react/">数据库 JWT react</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <h1 id="JWT学习–登录逻辑"><a href="#JWT学习–登录逻辑" class="headerlink" title="JWT学习–登录逻辑"></a>JWT学习–登录逻辑</h1><blockquote>
+<p><a class="link"   target="_blank" rel="noopener" href="https://jwt.io/%EF%BC%88jwt%E8%A7%A3%E6%9E%90%E5%B9%B3%E5%8F%B0" >https://jwt.io/（jwt解析平台<i class="fas fa-external-link-alt"></i></a> 非常好用）</p>
+</blockquote>
+<h2 id="这是个什么玩意？"><a href="#这是个什么玩意？" class="headerlink" title="这是个什么玩意？"></a>这是个什么玩意？</h2><p>JSON Web Token的缩写，是一种基于JSON格式的用于进行身份认证的令牌。它可以将用户身份信息以JSON格式进行编码，并采用数字签名的方式保证其不被篡改。JWT可以通过在HTTP请求头中传递它来实现跨域身份认证，从而实现无状态分布式认证。</p>
+<p>目前主流的一些平台登录都是使用的这个，通过浏览器中浏览cookie或者localstorage都能找到。</p>
+<p>JWT（Json Web Token）：Token技术的一种现有标准，也是目前最流行的跨域认证解决方案。JWT主要由Header（头部），Payload（负载），Signature（签名）三部分组成。如下图示例：</p>
+<p><img src="/img/image-20230808190423502.png" alt="image-20230808190423502"></p>
+<h3 id="HEADER-ALGORITHM-amp-TOKEN-TYPE"><a href="#HEADER-ALGORITHM-amp-TOKEN-TYPE" class="headerlink" title="HEADER: ALGORITHM &amp; TOKEN TYPE"></a>HEADER: ALGORITHM &amp; TOKEN TYPE</h3><p>JWT 头部分是一个描述 JWT 元数据的 JSON 对象：</p>
+<ul>
+<li>alg：表示加密算法，HS256 是 HMAC SHA256 的缩写</li>
+<li>typ：token 类型</li>
+</ul>
+<p>JavaScript</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;alg&quot;</span>: <span class="string">&quot;HS256&quot;</span>,</span><br><span class="line">  <span class="string">&quot;typ&quot;</span>: <span class="string">&quot;JWT&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="PAYLOAD-DATA"><a href="#PAYLOAD-DATA" class="headerlink" title="PAYLOAD: DATA"></a>PAYLOAD: DATA</h3><p>JWT 数据部分，payload 是 JWT 的主体内容部分，也是一个 JSON 字符串，包含需要传递的数据，注意 payload 部分不要存储隐私数据，防止信息泄露</p>
+<p>JavaScript</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;sub&quot;</span>: <span class="string">&quot;1234567890&quot;</span>,</span><br><span class="line">  <span class="string">&quot;name&quot;</span>: <span class="string">&quot;John Doe&quot;</span>,</span><br><span class="line">  <span class="string">&quot;iat&quot;</span>: <span class="number">1516239022</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="VERIFY-SIGNATURE"><a href="#VERIFY-SIGNATURE" class="headerlink" title="VERIFY SIGNATURE"></a>VERIFY SIGNATURE</h3><p>JWT 签名部分是对上面两部分数据加密后生成的字符串，通过 header 指定的算法生成加密字符串，以确保数据不会被篡改。</p>
+<p>生成签名时需要使用密钥（即下方示例中的 abcdefg），密钥只保存在服务端，不能向用户公开，它是一个字符串，我们可以自由指定。</p>
+<p>生成签名时需要根据 header 中指定的签名算法，并根据下方的公式，即将 header 和 payload 的数据通过 base64加密后用 <code>.</code> 进行连接，然后通过密钥进行 SHA256 加密，由于加入了密钥，所以生成的字符串将无法被破译和篡改，只有在服务端才能还原</p>
+<p>JavaScript</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">HMACSHA256</span>(</span><br><span class="line">  <span class="title function_">base64UrlEncode</span>(header) + <span class="string">&quot;.&quot;</span> +</span><br><span class="line">  <span class="title function_">base64UrlEncode</span>(payload),</span><br><span class="line">  abcdefg</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h2 id="个人感悟"><a href="#个人感悟" class="headerlink" title="个人感悟"></a>个人感悟</h2><p>其实这个东西不难理解，客户端向服务端发送账号密码，服务端返回给客户端一个jwt，而自己留存一个secret（这玩意只有服务端知道，客户端肯定拿不到），然后以后客户端发送请求的时候，服务端进行一次计算操作，</p>
+<p>这个计算式这样的</p>
+<p>header中使用的加密算法（”Header+.+Payload“，secret）&#x3D;结果</p>
+<p>这个结果就是signature，然后再和发送过来的jwt的signature进行比对，如果一致那么准许客户端访问服务端的页面。</p>
+<p>也正是这样防止了客户端对请求中的header和payload进行更改，因为你一旦进行更改两者中的任意一个 对最后计算得到的signature产生影响，最后服务端将计算得到的signature和jwt中的signature进行比对发现不一致，那么服务端就不允许你访问页面了。</p>
+<p><strong>当然你的secret也就是密钥如果被别人知道了，那么你的网站大概率是要玩完的。</strong></p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="flask后端"><a href="#flask后端" class="headerlink" title="flask后端"></a>flask后端</h3><p>数据库连接啥的自己去配。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/login&quot;</span>, methods=[<span class="string">&quot;POST&quot;</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">login</span>():</span><br><span class="line">    data = request.json</span><br><span class="line">    username = data.get(<span class="string">&quot;username&quot;</span>)</span><br><span class="line">    password = data.get(<span class="string">&quot;password&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 查询数据库验证用户名和密码</span></span><br><span class="line">    <span class="keyword">with</span> db.cursor() <span class="keyword">as</span> cursor:</span><br><span class="line">        query = <span class="string">&quot;SELECT * FROM users WHERE username = %s AND password = %s&quot;</span></span><br><span class="line">        cursor.execute(query, (username, password))</span><br><span class="line">        user = cursor.fetchone()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> user:</span><br><span class="line">            <span class="comment"># 设置过期时间为5秒后</span></span><br><span class="line">            expiration = datetime.utcnow() + timedelta(seconds=<span class="number">5</span>)</span><br><span class="line">            <span class="comment"># 生成JWT令牌</span></span><br><span class="line">            token = jwt.encode(</span><br><span class="line">                &#123;<span class="string">&quot;id&quot;</span>: user[<span class="number">0</span>], <span class="string">&quot;username&quot;</span>: user[<span class="number">1</span>], <span class="string">&quot;exp&quot;</span>: expiration&#125;,</span><br><span class="line">                <span class="string">&quot;magic你想写啥就写啥 一个密钥而已&quot;</span>,</span><br><span class="line">                algorithm=<span class="string">&quot;HS256&quot;</span></span><br><span class="line">            )</span><br><span class="line">            <span class="keyword">return</span> jsonify(&#123;<span class="string">&quot;token&quot;</span>: token&#125;)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> jsonify(&#123;<span class="string">&quot;message&quot;</span>: <span class="string">&quot;Authentication failed.&quot;</span>&#125;), <span class="number">401</span></span><br><span class="line"><span class="comment"># 受保护的路由，需要验证JWT</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/protected&quot;</span>, methods=[<span class="string">&quot;GET&quot;</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">protected</span>():</span><br><span class="line">    token = request.headers.get(<span class="string">&quot;Authorization&quot;</span>).split()[<span class="number">1</span>]</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        decoded = jwt.decode(token, <span class="string">&quot;your_secret_key&quot;</span>, algorithms=[<span class="string">&quot;HS256&quot;</span>])</span><br><span class="line">        <span class="keyword">return</span> jsonify(&#123;<span class="string">&quot;message&quot;</span>: <span class="string">&quot;Protected route accessed.&quot;</span>&#125;)</span><br><span class="line">    <span class="keyword">except</span> jwt.ExpiredSignatureError:</span><br><span class="line">        <span class="keyword">return</span> jsonify(&#123;<span class="string">&quot;message&quot;</span>: <span class="string">&quot;Token has expired.&quot;</span>&#125;), <span class="number">401</span></span><br><span class="line">    <span class="keyword">except</span> jwt.DecodeError:</span><br><span class="line">        <span class="keyword">return</span> jsonify(&#123;<span class="string">&quot;message&quot;</span>: <span class="string">&quot;Token is invalid.&quot;</span>&#125;), <span class="number">401</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    app.run(host=<span class="string">&quot;0.0.0.0&quot;</span>, port=<span class="number">5000</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="react前端"><a href="#react前端" class="headerlink" title="react前端"></a>react前端</h3><p>使用了一个bootstrap的UI，然后自定义了一些css文件方便查看。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123; useState &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Container</span>, <span class="title class_">Form</span>, <span class="title class_">Button</span>, <span class="title class_">Row</span>, <span class="title class_">Col</span>, <span class="title class_">Alert</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;react-bootstrap&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;../YourCustomStyle.css&#x27;</span>; <span class="comment">// 导入自定义的CSS样式文件</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">Login</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> [username, setUsername] = <span class="title function_">useState</span>(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">  <span class="keyword">const</span> [password, setPassword] = <span class="title function_">useState</span>(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">  <span class="keyword">const</span> [accessAllowed, setAccessAllowed] = <span class="title function_">useState</span>(<span class="literal">null</span>);</span><br><span class="line">  <span class="keyword">const</span> [loggedIn, setLoggedIn] = <span class="title function_">useState</span>(<span class="literal">false</span>); <span class="comment">// 新增状态变量</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">handleUsernameChange</span> = (<span class="params">event</span>) =&gt; &#123;</span><br><span class="line">    <span class="title function_">setUsername</span>(event.<span class="property">target</span>.<span class="property">value</span>);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">handlePasswordChange</span> = (<span class="params">event</span>) =&gt; &#123;</span><br><span class="line">    <span class="title function_">setPassword</span>(event.<span class="property">target</span>.<span class="property">value</span>);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">handleLogin</span> = <span class="keyword">async</span> (<span class="params">event</span>) =&gt; &#123;</span><br><span class="line">    event.<span class="title function_">preventDefault</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">&#x27;http://localhost:5000/login&#x27;</span>, &#123;</span><br><span class="line">        <span class="attr">method</span>: <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">        <span class="attr">headers</span>: &#123;</span><br><span class="line">          <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/json&#x27;</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">body</span>: <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(&#123; username, password &#125;),</span><br><span class="line">      &#125;);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (response.<span class="property">ok</span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> data = <span class="keyword">await</span> response.<span class="title function_">json</span>();</span><br><span class="line">        <span class="keyword">const</span> token = data.<span class="property">token</span>; <span class="comment">// 从响应中获取JWT令牌</span></span><br><span class="line">        <span class="variable language_">localStorage</span>.<span class="title function_">setItem</span>(<span class="string">&#x27;token&#x27;</span>, token); <span class="comment">// 存储令牌</span></span><br><span class="line">        <span class="title function_">setAccessAllowed</span>(<span class="literal">true</span>); <span class="comment">// 设置允许访问状态</span></span><br><span class="line">        <span class="title function_">setLoggedIn</span>(<span class="literal">true</span>); <span class="comment">// 设置已登录状态</span></span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="title function_">setAccessAllowed</span>(<span class="literal">false</span>); <span class="comment">// 设置不允许访问状态</span></span><br><span class="line">        <span class="title function_">setLoggedIn</span>(<span class="literal">false</span>); <span class="comment">// 设置未登录状态</span></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;Login failed&#x27;</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;An error occurred:&#x27;</span>, error);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">handleProtectedAccess</span> = <span class="keyword">async</span> (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> token = <span class="variable language_">localStorage</span>.<span class="title function_">getItem</span>(<span class="string">&#x27;token&#x27;</span>);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">&#x27;http://localhost:5000/protected&#x27;</span>, &#123;</span><br><span class="line">        <span class="attr">method</span>: <span class="string">&#x27;GET&#x27;</span>,</span><br><span class="line">        <span class="attr">headers</span>: &#123;</span><br><span class="line">          <span class="title class_">Authorization</span>: <span class="string">`Bearer <span class="subst">$&#123;token&#125;</span>`</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (response.<span class="property">ok</span>) &#123;</span><br><span class="line">        <span class="title function_">setAccessAllowed</span>(<span class="literal">true</span>);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="title function_">setAccessAllowed</span>(<span class="literal">false</span>);</span><br><span class="line">        <span class="title function_">setLoggedIn</span>(<span class="literal">false</span>); <span class="comment">// 设置未登录状态</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;An error occurred:&#x27;</span>, error);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Container</span> <span class="attr">className</span>=<span class="string">&quot;mt-5&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      &#123;!loggedIn &amp;&amp; ( // 显示表单只有在未登录状态下才有效</span></span><br><span class="line"><span class="language-xml">         <span class="tag">&lt;<span class="name">Form</span> <span class="attr">onSubmit</span>=<span class="string">&#123;handleLogin&#125;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">         <span class="tag">&lt;<span class="name">Form.Group</span> <span class="attr">controlId</span>=<span class="string">&quot;formUsername&quot;</span> <span class="attr">className</span>=<span class="string">&#x27;custom-font&#x27;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">           <span class="tag">&lt;<span class="name">Row</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">             <span class="tag">&lt;<span class="name">Col</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">               <span class="tag">&lt;<span class="name">Form.Label</span>&gt;</span>用户名<span class="tag">&lt;/<span class="name">Form.Label</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">             <span class="tag">&lt;/<span class="name">Col</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">           <span class="tag">&lt;/<span class="name">Row</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">           <span class="tag">&lt;<span class="name">Row</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">             <span class="tag">&lt;<span class="name">Col</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">               <span class="tag">&lt;<span class="name">Form.Control</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                 <span class="attr">type</span>=<span class="string">&quot;text&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                 <span class="attr">placeholder</span>=<span class="string">&quot;请输入用户名&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                 <span class="attr">value</span>=<span class="string">&#123;username&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                 <span class="attr">onChange</span>=<span class="string">&#123;handleUsernameChange&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">               /&gt;</span></span></span><br><span class="line"><span class="language-xml">             <span class="tag">&lt;/<span class="name">Col</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">           <span class="tag">&lt;/<span class="name">Row</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">         <span class="tag">&lt;/<span class="name">Form.Group</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"> </span></span><br><span class="line"><span class="language-xml">         <span class="tag">&lt;<span class="name">Form.Group</span> <span class="attr">controlId</span>=<span class="string">&quot;formPassword&quot;</span> <span class="attr">className</span>=<span class="string">&#x27;custom-font&#x27;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">           <span class="tag">&lt;<span class="name">Form.Label</span>&gt;</span>密码<span class="tag">&lt;/<span class="name">Form.Label</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">           <span class="tag">&lt;<span class="name">Form.Control</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">             <span class="attr">type</span>=<span class="string">&quot;password&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">             <span class="attr">placeholder</span>=<span class="string">&quot;请输入密码&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">             <span class="attr">value</span>=<span class="string">&#123;password&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">             <span class="attr">onChange</span>=<span class="string">&#123;handlePasswordChange&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">           /&gt;</span></span></span><br><span class="line"><span class="language-xml">         <span class="tag">&lt;/<span class="name">Form.Group</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"> </span></span><br><span class="line"><span class="language-xml">         <span class="tag">&lt;<span class="name">Button</span> <span class="attr">className</span>=<span class="string">&quot;mt-3 custom-font&quot;</span> <span class="attr">variant</span>=<span class="string">&quot;primary&quot;</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> &gt;</span></span></span><br><span class="line"><span class="language-xml">           登录</span></span><br><span class="line"><span class="language-xml">         <span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">       <span class="tag">&lt;/<span class="name">Form</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      )&#125;</span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">      &#123;loggedIn &amp;&amp; (</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Button</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">className</span>=<span class="string">&quot;mt-3&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">variant</span>=<span class="string">&quot;success&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">onClick</span>=<span class="string">&#123;handleProtectedAccess&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        &gt;</span></span></span><br><span class="line"><span class="language-xml">          访问受保护路由</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      )&#125;</span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">      &#123;accessAllowed === true &amp;&amp; (</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Alert</span> <span class="attr">className</span>=<span class="string">&quot;mt-3&quot;</span> <span class="attr">variant</span>=<span class="string">&quot;success&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          允许访问</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">Alert</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      )&#125;</span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">      &#123;accessAllowed === false &amp;&amp; (</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Alert</span> <span class="attr">className</span>=<span class="string">&quot;mt-3&quot;</span> <span class="attr">variant</span>=<span class="string">&quot;danger&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          不允许访问</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">Alert</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      )&#125;</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">Container</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">Login</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>这玩意就是闹着玩的，就是规定了一个生效时间5s的token，自登陆开始在5s内你可以访问一个被保护的路由，五秒后你就不能访问了，当然你可以自己延伸和拓展。</p>
+<p><img src="/img/image-20230808201031052.png" alt="image-20230808201031052"></p>
+
+            </div>
+
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93-JWT-react/">#数据库 JWT react</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/2023/06/25/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%A4%8D%E4%B9%A0/"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">深度学习复习</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JWT%E5%AD%A6%E4%B9%A0%E2%80%93%E7%99%BB%E5%BD%95%E9%80%BB%E8%BE%91"><span class="nav-text">JWT学习–登录逻辑</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%99%E6%98%AF%E4%B8%AA%E4%BB%80%E4%B9%88%E7%8E%A9%E6%84%8F%EF%BC%9F"><span class="nav-text">这是个什么玩意？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HEADER-ALGORITHM-amp-TOKEN-TYPE"><span class="nav-text">HEADER: ALGORITHM &amp; TOKEN TYPE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PAYLOAD-DATA"><span class="nav-text">PAYLOAD: DATA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VERIFY-SIGNATURE"><span class="nav-text">VERIFY SIGNATURE</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AA%E4%BA%BA%E6%84%9F%E6%82%9F"><span class="nav-text">个人感悟</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0"><span class="nav-text">实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#flask%E5%90%8E%E7%AB%AF"><span class="nav-text">flask后端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#react%E5%89%8D%E7%AB%AF"><span class="nav-text">react前端</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%88%E6%9E%9C"><span class="nav-text">效果</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2020</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">caiye</a>
+            
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.6.1</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/post-helper.js"></script>
+
+        
+            
+<script src="/js/libs/anime.min.js"></script>
+
+        
+        
+            
+<script src="/js/toc.js"></script>
+
+        
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
