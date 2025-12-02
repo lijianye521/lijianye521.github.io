@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexPhone | 重新定义移动体验</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            color: #333;
+            background-color: #fefefe;
+            line-height: 1.6;
+        }
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* 导航 */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        .logo i {
+            color: #4a6cf7;
+            margin-right: 8px;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #4a6cf7;
+        }
+        .cta-nav {
+            background: linear-gradient(135deg, #4a6cf7, #6a8cff);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+        }
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: #333;
+            cursor: pointer;
+        }
+        /* Hero */
+        .hero {
+            padding: 180px 0 100px;
+            background: linear-gradient(135deg, #f5f7ff 0%, #eef1ff 100%);
+            text-align: center;
+            overflow: hidden;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        .hero p {
+            font-size: 1.25rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+        }
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #4a6cf7, #6a8cff);
+            color: white;
+            box-shadow: 0 5px 15px rgba(74, 108, 247, 0.3);
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(74, 108, 247, 0.4);
+        }
+        .btn-secondary {
+            background-color: transparent;
+            color: #4a6cf7;
+            border: 2px solid #4a6cf7;
+        }
+        .btn-secondary:hover {
+            background-color: rgba(74, 108, 247, 0.05);
+        }
+        .hero-visual {
+            margin-top: 60px;
+            height: 400px;
+            background: linear-gradient(45deg, #d1d8ff, #e8ebff);
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .phone-mockup {
+            width: 280px;
+            height: 500px;
+            background: #1a1a1a;
+            border-radius: 40px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+            position: relative;
+            border: 12px solid #111;
+        }
+        .screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(160deg, #0f0c29, #302b63, #24243e);
+            border-radius: 28px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            padding: 30px;
+        }
+        /* 核心卖点 */
+        .features {
+            padding: 100px 0;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: #777;
+            max-width: 600px;
+            margin: 0 auto 60px;
+            font-size: 1.1rem;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .feature-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #eef1ff, #d1d8ff);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: #4a6cf7;
+            font-size: 1.8rem;
+        }
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+        .feature-card p {
+            color: #666;
+        }
+        /* 解决方案 */
+        .solutions {
+            padding: 80px 0;
+            background-color: #f9faff;
+        }
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .solution-item {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+        .solution-img {
+            height: 200px;
+            background: linear-gradient(45deg, #a8b4ff, #d1d8ff);
+        }
+        .solution-content {
+            padding: 30px;
+        }
+        .solution-content h3 {
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+        /* FAQ */
+        .faq {
+            padding: 100px 0;
+        }
+        .faq-container {
+            max-width: 800px;
+            margin: 50px auto 0;
+        }
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 25px 0;
+        }
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #1a1a1a;
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: #666;
+            padding-top: 0;
+        }
+        .faq-answer.active {
+            max-height: 200px;
+            padding-top: 15px;
+        }
+        /* 页脚 */
+        footer {
+            background-color: #1a1a1a;
+            color: #ccc;
+            padding: 70px 0 30px;
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        .footer-col h3 {
+            color: white;
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+        }
+        .footer-links {
+            list-style: none;
+        }
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover {
+            color: #6a8cff;
+        }
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .contact-info i {
+            margin-right: 10px;
+            color: #6a8cff;
+        }
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            color: #888;
+            font-size: 0.9rem;
+        }
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .nav-links, .cta-nav {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero p {
+                font-size: 1.1rem;
+                padding: 0 10px;
+            }
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            .btn {
+                width: 80%;
+                text-align: center;
+            }
+            .phone-mockup {
+                width: 200px;
+                height: 360px;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航 -->
+    <header>
+        <div class="container nav-container">
+            <a href="#home" class="logo"><i class="fas fa-mobile-alt"></i> NexPhone</a>
+            <ul class="nav-links">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#features">核心功能</a></li>
+                <li><a href="#solutions">使用场景</a></li>
+                <li><a href="#faq">常见问题</a></li>
+                <li><a href="#contact">联系我们</a></li>
+            </ul>
+            <a href="#contact" class="btn cta-nav">立即咨询</a>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+        </div>
+    </header>
+
+    <!-- Hero 首屏 -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>未来手机，触手可及</h1>
+            <p>NexPhone 融合顶尖科技与人性化设计，带来前所未有的速度、影像与交互体验。专为追求极致的你打造。</p>
+            <div class="hero-btns">
+                <a href="#features" class="btn btn-primary">探索功能</a>
+                <a href="#contact" class="btn btn-secondary">预约体验</a>
+            </div>
+            <div class="hero-visual">
+                <div class="phone-mockup">
+                    <div class="screen">
+                        <i class="fas fa-bolt" style="font-size: 3rem; margin-bottom: 20px;"></i>
+                        <h3 style="margin-bottom: 10px;">NexPhone OS</h3>
+                        <p style="text-align: center;">极速 · 智能 · 无缝</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心卖点 -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">为何选择 NexPhone</h2>
+            <p class="section-subtitle">我们重新思考了手机的每一个细节，只为提供超越期待的卓越体验。</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>超速性能</h3>
+                    <p>搭载下一代处理器，性能提升40%，能效比卓越。无论是大型游戏还是多任务处理，都流畅无比。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>专业影像系统</h3>
+                    <p>三摄全焦段覆盖，计算摄影再升级。夜景、人像、视频，每一刻都清晰动人，媲美专业设备。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-battery-full"></i>
+                    </div>
+                    <h3>全天候续航</h3>
+                    <p>智能电池管理技术，配合高能效芯片，轻松满足一天重度使用。支持超快无线充电。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-expand-alt"></i>
+                    </div>
+                    <h3>自适应高刷屏</h3>
+                    <p>6.8英寸自适应刷新率屏幕，色彩精准，亮度出众。智能调节刷新率，兼顾流畅与省电。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 使用场景 -->
+    <section class="solutions" id="solutions">
+        <div class="container">
+            <h2 class="section-title">适用于各种场景</h2>
+            <p class="section-subtitle">从创意工作到日常生活，NexPhone 都是你得力的伙伴。</p>
+            <div class="solutions-grid">
+                <div class="solution-item">
+                    <div class="solution-img" style="background: linear-gradient(45deg, #ffa8a8, #ffd1d1);"></div>
+                    <div class="solution-content">
+                        <h3>内容创作</h3>
+                        <p>强大的影像系统和剪辑软件，让手机变身移动工作室，随时随地捕捉灵感，创作高质量内容。</p>
+                    </div>
+                </div>
+                <div class="solution-item">
+                    <div class="solution-img" style="background: linear-gradient(45deg, #a8ffc5, #d1ffdf);"></div>
+                    <div class="solution-content">
+                        <h3>移动办公</h3>
+                        <p>无缝的多设备协同、安全的商务功能与持久的续航，保障工作效率，随时随地处理重要事务。</p>
+                    </div>
+                </div>
+                <div class="solution-item">
+                    <div class="solution-img" style="background: linear-gradient(45deg, #a8e4ff, #d1edff);"></div>
+                    <div class="solution-content">
+                        <h3>沉浸娱乐</h3>
+                        <p>顶级屏幕与立体声扬声器，结合强悍性能，带来影院级的观影体验和酣畅淋漓的游戏对战。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="section-title">常见问题</h2>
+            <p class="section-subtitle">关于 NexPhone，您可能想了解的。</p>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>NexPhone 支持5G网络吗？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>是的，NexPhone 全系列支持最新的5G网络，包括Sub-6GHz和毫米波频段，确保您在全球范围内都能享受高速、低延迟的网络体验。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>是否有防水功能？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>NexPhone 达到了IP68级别的防尘防水标准，可以在1.5米深的水中停留长达30分钟，从容应对日常泼溅和意外落水。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>操作系统有何特别之处？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>我们搭载了深度定制的 NexPhone OS，基于最新系统深度优化，界面简洁，动画流畅，并提供了强大的隐私保护功能和智能场景感知。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>如何购买与售后？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>您可以通过官网在线预订，或前往我们的线下体验店购买。我们提供15天无理由退换货，以及长达24个月的官方质保服务。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>NexPhone</h3>
+                    <p style="color: #aaa;">以创新科技，重塑移动生活。我们致力于打造世界上最出色的智能手机。</p>
+                </div>
+                <div class="footer-col">
+                    <h3>快速链接</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">首页</a></li>
+                        <li><a href="#features">核心功能</a></li>
+                        <li><a href="#solutions">使用场景</a></li>
+                        <li><a href="#faq">技术支持</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>联系我们</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> 中国上海市浦东新区科技大道100号</p>
+                        <p><i class="fas fa-phone"></i> 400-123-4567</p>
+                        <p><i class="fas fa-envelope"></i> support@nexphone.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 NexPhone 版权所有。保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的FAQ切换
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const answer = item.nextElementSibling;
+                answer.classList.toggle('active');
+                const icon = item.querySelector('i');
+                icon.style.transform = answer.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+            });
+        });
+
+        // 移动端菜单占位（简单示例）
+        document.querySelector('.mobile-menu-btn').addEventListener('click', () => {
+            alert('移动端菜单功能需进一步开发。');
+        });
+    </script>
+</body>
+</html>
