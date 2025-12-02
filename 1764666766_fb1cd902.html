@@ -1,0 +1,673 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XTransfer - 全球领先的跨境支付与金融服务平台</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9fafc;
+        }
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* 导航栏 */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #0052ff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        .logo i {
+            margin-right: 8px;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        .nav-links li {
+            margin-left: 2.5rem;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #444;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: #0052ff;
+        }
+        .cta-nav {
+            background: linear-gradient(135deg, #0052ff, #6c8eff);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .cta-nav:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 82, 255, 0.3);
+        }
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #0052ff;
+        }
+        /* Hero 首屏 */
+        .hero {
+            padding: 160px 0 100px;
+            background: linear-gradient(135deg, #f0f5ff 0%, #e6f0ff 100%);
+            text-align: center;
+            overflow: hidden;
+        }
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: #001a4d;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        .hero p {
+            font-size: 1.3rem;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+        }
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #0052ff, #6c8eff);
+            color: white;
+            padding: 16px 36px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 82, 255, 0.3);
+        }
+        .btn-secondary {
+            background-color: transparent;
+            color: #0052ff;
+            border: 2px solid #0052ff;
+            padding: 16px 36px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+        .btn-secondary:hover {
+            background-color: #0052ff;
+            color: white;
+        }
+        /* 核心卖点 */
+        .features {
+            padding: 100px 0;
+            background-color: #fff;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #001a4d;
+            margin-bottom: 15px;
+        }
+        .section-title p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .feature-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid #eee;
+            transition: transform 0.4s, box-shadow 0.4s;
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 82, 255, 0.1);
+        }
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #e6f0ff, #d1e0ff);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: #0052ff;
+            font-size: 1.8rem;
+        }
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #001a4d;
+        }
+        .feature-card p {
+            color: #666;
+            font-size: 1rem;
+        }
+        /* 解决方案 */
+        .solutions {
+            padding: 100px 0;
+            background-color: #f0f5ff;
+        }
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .solution-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+        }
+        .solution-img {
+            height: 180px;
+            background: linear-gradient(90deg, #8a9eff, #0052ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+        }
+        .solution-content {
+            padding: 30px;
+        }
+        .solution-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #001a4d;
+        }
+        .solution-content p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .solution-link {
+            color: #0052ff;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+        }
+        .solution-link i {
+            margin-left: 8px;
+            transition: transform 0.3s;
+        }
+        .solution-link:hover i {
+            transform: translateX(5px);
+        }
+        /* FAQ */
+        .faq {
+            padding: 100px 0;
+            background-color: #fff;
+        }
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 25px 0;
+            cursor: pointer;
+        }
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #001a4d;
+        }
+        .faq-question i {
+            color: #0052ff;
+            transition: transform 0.3s;
+        }
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            color: #666;
+            line-height: 1.7;
+            padding-top: 0;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding-top: 20px;
+        }
+        /* 页脚 */
+        footer {
+            background-color: #001a4d;
+            color: #ccd6f6;
+            padding: 70px 0 30px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        .footer-col h4 {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background-color: #0052ff;
+        }
+        .footer-links {
+            list-style: none;
+        }
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        .footer-links a {
+            color: #a3b5e8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover {
+            color: #fff;
+        }
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .contact-info i {
+            margin-right: 12px;
+            color: #0052ff;
+            width: 20px;
+        }
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #8a9bc9;
+        }
+        /* 响应式 */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.7rem;
+            }
+            .nav-links {
+                display: none;
+            }
+            .mobile-toggle {
+                display: block;
+            }
+            .nav-container.active .nav-links {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                padding: 20px;
+            }
+            .nav-container.active .nav-links li {
+                margin: 15px 0;
+            }
+        }
+        @media (max-width: 768px) {
+            .hero {
+                padding: 140px 0 80px;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero p {
+                font-size: 1.1rem;
+            }
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            .features, .solutions, .faq {
+                padding: 70px 0;
+            }
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <header>
+        <div class="container nav-container" id="navContainer">
+            <a href="#home" class="logo"><i class="fas fa-exchange-alt"></i> XTransfer</a>
+            <div class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">首页</a></li>
+                <li><a href="#features">核心优势</a></li>
+                <li><a href="#solutions">解决方案</a></li>
+                <li><a href="#faq">常见问题</a></li>
+                <li><a href="#contact">联系我们</a></li>
+            </ul>
+            <a href="#contact" class="cta-nav">免费开户</a>
+        </div>
+    </header>
+
+    <!-- Hero 首屏 -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>全球领先的跨境支付与金融服务平台</h1>
+            <p>XTransfer 为全球中小外贸企业提供一站式、安全、高效、低成本的跨境收款、付款、外汇兑换及风险管理解决方案，助力企业轻松拓展全球市场。</p>
+            <div class="hero-btns">
+                <a href="#contact" class="btn-primary">立即免费开户 <i class="fas fa-arrow-right"></i></a>
+                <a href="#solutions" class="btn-secondary">了解解决方案</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心卖点 -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>为什么选择 XTransfer？</h2>
+                <p>我们专注于解决中小外贸企业在跨境金融中遇到的痛点，提供超越传统银行的卓越体验。</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>资金安全合规</h3>
+                    <p>与全球顶级银行及金融机构合作，资金隔离存管，严格遵守各国反洗钱法规，保障您的每一笔交易安全。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>极速到账</h3>
+                    <p>智能路由技术，实现最快 T+0 到账，大幅提升资金周转效率，让您不再为漫长的汇款周期而烦恼。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <h3>成本透明低廉</h3>
+                    <p>远低于传统银行的费率，无隐藏费用。实时汇率，外汇兑换成本透明，为您节省可观的财务支出。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h3>全球网络覆盖</h3>
+                    <p>支持 100+ 国家/地区的本地收款与付款，覆盖主流币种，一个账户轻松管理全球贸易资金流。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>专属客户经理</h3>
+                    <p>7x24 小时中英双语专业客服，配备一对一客户经理，随时响应您的需求，提供个性化解决方案。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>智能风控与数据</h3>
+                    <p>基于大数据与AI的智能风控系统，实时监控交易风险。提供清晰的数据看板，助力企业决策。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 解决方案 -->
+    <section class="solutions" id="solutions">
+        <div class="container">
+            <div class="section-title">
+                <h2>核心解决方案</h2>
+                <p>针对不同外贸场景，我们提供定制化的金融产品与服务。</p>
+            </div>
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <div class="solution-img">
+                        <i class="fas fa-money-check-alt"></i>
+                    </div>
+                    <div class="solution-content">
+                        <h3>跨境收款</h3>
+                        <p>为跨境电商、B2B外贸企业提供多币种海外本地收款账户，支持信用卡、电汇等多种付款方式，轻松收取全球货款。</p>
+                        <a href="#" class="solution-link">了解更多 <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-img">
+                        <i class="fas fa-paper-plane"></i>
+                    </div>
+                    <div class="solution-content">
+                        <h3>全球付款</h3>
+                        <p>向供应商、服务商进行便捷、低成本的国际付款。批量付款、定时付款功能，高效管理您的应付账款。</p>
+                        <a href="#" class="solution-link">了解更多 <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-img">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <div class="solution-content">
+                        <h3>外汇兑换与管理</h3>
+                        <p>提供具有竞争力的实时汇率，一站式完成结汇、锁汇等操作，有效规避汇率波动风险，实现资产保值。</p>
+                        <a href="#" class="solution-link">了解更多 <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>常见问题</h2>
+                <p>关于 XTransfer 服务的常见疑问解答。</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        <span>XTransfer 的服务对象是哪些企业？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>XTransfer 主要服务于从事跨境贸易的中小企业，包括但不限于B2B出口商、跨境电商卖家、外贸SOHO等。无论您是初创公司还是成长型企业，只要您有跨境收付款需求，我们都可为您提供适配的解决方案。</p>
+                    </div>
+                </div>
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        <span>开户需要哪些资料？流程复杂吗？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>开户流程完全在线完成，简单快捷。通常需要提供企业营业执照、法人身份证件、业务证明（如合同、发票）等基本资料。我们的系统会引导您一步步完成提交，审核通过后即可立即使用账户功能。</p>
+                    </div>
+                </div>
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        <span>资金安全如何保障？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>资金安全是我们的首要原则。我们与持有全球顶级牌照的银行合作，实现客户资金与运营资金的完全隔离存管。同时，我们拥有强大的合规与风控团队，严格遵循国际反洗钱（AML）和了解你的客户（KYC）法规，确保业务合规性。</p>
+                    </div>
+                </div>
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        <span>费率是多少？有没有隐藏费用？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>我们坚持透明定价。主要费用包括小额交易手续费和外汇点差，具体费率根据您的交易量和业务类型而定，通常远低于传统银行。平台无开户费、年费、入账费等隐藏费用。您可以在官网费率页面或联系客户经理获取详细报价。</p>
+                    </div>
+                </div>
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        <span>支持哪些币种和国家？</span>
+                       i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>目前我们支持美元（USD）、欧元（EUR）、英镑（GBP）、日元（JPY）、港币（HKD）、澳元（AUD）等十余种主流货币的收款与付款。业务网络覆盖全球超过100个国家和地区，特别是中国、美国、欧洲、东南亚等主要贸易区域。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>XTransfer</h4>
+                    <p style="color: #a3b5e8; margin-bottom: 20px;">让全球贸易融资更简单。</p>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> service@xtransfer.com</p>
+                        <p><i class="fas fa-phone"></i> 400-100-8888</p>
+                        <p><i class="fas fa-map-marker-alt"></i> 上海市浦东新区某某路123号金融大厦</p>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>产品服务</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">跨境收款</a></li>
+                        <li><a href="#">全球付款</a></li>
+                        <li><a href="#">外汇兑换</a></li>
+                        <li><a href="#">风控服务</a></li>
+                        <li><a href="#">API 集成</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">公司简介</a></li>
+                        <li><a href="#">新闻动态</a></li>
+                        <li><a href="#">加入我们</a></li>
+                        <li><a href="#">合作伙伴</a></li>
+                        <li><a href="#">法律条款</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fab fa-linkedin" style="margin-right:8px;"></i> LinkedIn</a></li>
+                        <li><a href="#"><i class="fab fa-twitter" style="margin-right:8px;"></i> Twitter</a></li>
+                        <li><a href="#"><i class="fab fa-weixin" style="margin-right:8px;"></i> 微信公众号</a></li>
+                        <li><a href="#"><i class="fab fa-youtube" style="margin-right:8px;"></i> YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 XTransfer 版权所有。保留所有权利。沪ICP备12345678号</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端导航切换
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navContainer = document.getElementById('navContainer');
+        mobileToggle.addEventListener('click', () => {
+            navContainer.classList.toggle('active');
+        });
+        // 点击导航链接后关闭移动菜单
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navContainer.classList.remove('active');
+            });
+        });
+        // FAQ 切换
+        function toggleFaq(item) {
+            item.classList.toggle('active');
+        }
+        // 导航栏滚动效果
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.08)';
+            } else {
+                header.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.05)';
+            }
+        });
+    </script>
+</body>
+</html>
