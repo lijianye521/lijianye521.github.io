@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智创未来 | 企业数字化解决方案</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9fafc;
+        }
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* 导航栏 */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2a5bd7;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        .logo i {
+            margin-right: 8px;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        .nav-links li {
+            margin-left: 2.5rem;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #444;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #2a5bd7;
+        }
+        .cta-nav {
+            background: linear-gradient(135deg, #2a5bd7, #3a7afe);
+            color: white !important;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+        }
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #2a5bd7;
+        }
+        /* Hero 首屏 */
+        .hero {
+            padding: 160px 0 100px;
+            background: linear-gradient(135deg, #f0f5ff 0%, #e6f0ff 100%);
+            text-align: center;
+            margin-top: 70px;
+            border-radius: 0 0 40px 40px;
+        }
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
+            color: #1a2b5f;
+            line-height: 1.2;
+        }
+        .hero p {
+            font-size: 1.3rem;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+        }
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 16px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #2a5bd7, #3a7afe);
+            color: white;
+            box-shadow: 0 6px 20px rgba(42, 91, 215, 0.3);
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(42, 91, 215, 0.4);
+        }
+        .btn-secondary {
+            background-color: transparent;
+            color: #2a5bd7;
+            border-color: #2a5bd7;
+        }
+        .btn-secondary:hover {
+            background-color: rgba(42, 91, 215, 0.05);
+            transform: translateY(-3px);
+        }
+        /* 核心卖点 */
+        .section {
+            padding: 90px 0;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #1a2b5f;
+            margin-bottom: 15px;
+        }
+        .section-title p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+        }
+        .feature-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.4s, box-shadow 0.4s;
+            border: 1px solid #f0f0f0;
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #e6f0ff, #d4e3ff);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: #2a5bd7;
+            font-size: 2rem;
+        }
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #1a2b5f;
+        }
+        .feature-card p {
+            color: #666;
+            font-size: 1rem;
+        }
+        /* 解决方案 */
+        .solution-showcase {
+            background-color: #f0f5ff;
+            border-radius: 40px;
+        }
+        .solution-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 70px;
+            flex-wrap: wrap;
+        }
+        .solution-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        .solution-img {
+            flex: 1;
+            min-width: 300px;
+            height: 350px;
+            background: linear-gradient(135deg, #d4e3ff, #aec8ff);
+            border-radius: 25px;
+            margin: 20px;
+        }
+        .solution-content {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px 40px;
+        }
+        .solution-content h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #1a2b5f;
+        }
+        .solution-content p {
+            color: #555;
+            margin-bottom: 25px;
+            font-size: 1.05rem;
+        }
+        /* FAQ */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            background: white;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            padding: 25px 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+            border-left: 5px solid #2a5bd7;
+        }
+        .faq-question {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1a2b5f;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+        .faq-answer {
+            color: #666;
+            line-height: 1.7;
+            padding-top: 10px;
+            border-top: 1px solid #eee;
+            display: none;
+        }
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        /* 页脚 */
+        footer {
+            background-color: #1a2b5f;
+            color: #d0d7f0;
+            padding: 70px 0 30px;
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        .footer-col h3 {
+            color: white;
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background: #3a7afe;
+        }
+        .footer-links {
+            list-style: none;
+        }
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        .footer-links a {
+            color: #b8c2e0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover {
+            color: #3a7afe;
+        }
+        .contact-info li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 18px;
+        }
+        .contact-info i {
+            color: #3a7afe;
+            margin-right: 12px;
+            margin-top: 4px;
+        }
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.95rem;
+            color: #a0a9cc;
+        }
+        /* 响应式 */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.7rem;
+            }
+            .solution-item, .solution-item:nth-child(even) {
+                flex-direction: column;
+                text-align: center;
+            }
+            .solution-img, .solution-content {
+                margin: 20px 0;
+            }
+        }
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                background: white;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+                transform: translateY(-150%);
+                transition: transform 0.4s ease;
+            }
+            .nav-links.active {
+                transform: translateY(0);
+            }
+            .nav-links li {
+                margin: 15px 0;
+            }
+            .hero {
+                padding: 130px 0 80px;
+            }
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            .hero p {
+                font-size: 1.1rem;
+            }
+            .section {
+                padding: 70px 0;
+            }
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <header>
+        <div class="container nav-container">
+            <a href="#home" class="logo"><i class="fas fa-rocket"></i> 智创未来</a>
+            <div class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#features">核心功能</a></li>
+                <li><a href="#solutions">解决方案</a></li>
+                <li><a href="#faq">常见问题</a></li>
+                <li><a href="#contact" class="cta-nav">联系我们</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero 首屏 -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>驱动企业数字化转型的智慧引擎</h1>
+            <p>我们提供一体化、智能化的云端解决方案，助力企业提升运营效率、优化客户体验并实现数据驱动的业务增长。从初创团队到大型集团，我们都能提供量身定制的服务。</p>
+            <div class="hero-btns">
+                <a href="#contact" class="btn btn-primary">免费咨询与演示</a>
+                <a href="#features" class="btn btn-secondary">探索功能</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心卖点 -->
+    <section class="section" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>为什么选择智创未来</h2>
+                <p>我们整合前沿技术，打造稳定、安全且易于扩展的企业级平台</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI 智能分析</h3>
+                    <p>内置机器学习算法，自动分析业务数据，生成可视化报告与 actionable insights，辅助决策。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>企业级安全</h3>
+                    <p>端到端加密、多重身份验证与合规性保障，确保您的数据资产在云端安全无虞。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
+                    <h3>无缝集成</h3>
+                    <p>提供丰富的 API 与主流企业软件（如 CRM、ERP）预置连接器，快速打通现有工作流。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-expand-arrows-alt"></i>
+                    </div>
+                    <h3>弹性扩展</h3>
+                    <p>基于微服务的云原生架构，可根据业务负载自动伸缩资源，从容应对增长与峰值。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 解决方案 -->
+    <section class="section solution-showcase" id="solutions">
+        <div class="container">
+            <div class="section-title">
+                <h2>行业解决方案</h2>
+                <p>针对不同场景的深度定制，释放数字化转型的最大价值</p>
+            </div>
+            <div class="solution-item">
+                <div class="solution-img"></div>
+                <div class="solution-content">
+                    <h3>零售与电商智能运营</h3>
+                    <p>整合线上线下数据，通过客户行为分析与库存预测模型，实现精准营销与供应链优化，提升转化率与库存周转效率。</p>
+                    <a href="#contact" class="btn btn-secondary">了解详情</a>
+                </div>
+            </div>
+            <div class="solution-item">
+                <div class="solution-img"></div>
+                <div class="solution-content">
+                    <h3>金融科技风控与合规</h3>
+                    <p>利用实时数据处理与模式识别技术，构建动态风险评估模型，自动化合规检查流程，有效降低运营风险与合规成本。</p>
+                    <a href="#contact" class="btn btn-secondary">了解详情</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>常见问题</h2>
+                <p>以下是客户最关心的一些问题</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>实施部署通常需要多长时间？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>标准 SaaS 产品的开通可在24小时内完成。对于需要深度定制和集成的企业级项目，我们会组建专属实施团队，周期通常在4到12周，具体取决于业务复杂度和数据迁移规模。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>数据安全与隐私如何保障？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>我们遵循国际安全标准（如ISO 27001），数据存储于国内顶级云服务商，采用金融级加密传输与存储。同时，我们提供严格的数据访问权限控制和操作日志审计，并签订保密协议（NDA）。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>是否支持本地化（On-Premise）部署？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>是的。除了主打的云端SaaS模式，我们也为对数据驻留有严格要求的客户提供私有化部署方案。该方案包含完整的系统交付、部署支持与后续维护服务。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>定价模式是怎样的？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>我们提供灵活透明的订阅制定价，通常基于用户数、功能模块和数据使用量。我们也为初创企业和非营利组织提供特别优惠。欢迎联系我们的销售团队获取定制报价。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>智创未来</h3>
+                    <p>致力于通过技术创新，赋能每一家企业实现数字化飞跃，成为其最值得信赖的技术伙伴。</p>
+                </div>
+                <div class="footer-col">
+                    <h3>快速链接</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">首页</a></li>
+                        <li><a href="#features">产品功能</a></li>
+                        <li><a href="#solutions">解决方案</a></li>
+                        <li><a href="#faq">帮助中心</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>联系我们</h3>
+                    <ul class="footer-links contact-info">
+                        <li><i class="fas fa-envelope"></i> <span>contact@futuretech.com</span></li>
+                        <li><i class="fas fa-phone"></i> <span>400-123-4567</span></li>
+                        <li><i class="fas fa-map-marker-alt"></i> <span>中国 · 上海市浦东新区科技园创新大厦18层</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 智创未来科技有限公司 版权所有。保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端导航切换
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileToggle.querySelector('i').classList.toggle('fa-bars');
+            mobileToggle.querySelector('i').classList.toggle('fa-times');
+        });
+        // 点击链接后关闭移动菜单
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileToggle.querySelector('i').classList.add('fa-bars');
+                mobileToggle.querySelector('i').classList.remove('fa-times');
+            });
+        });
+        // FAQ 切换
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+                const icon = question.querySelector('i');
+                if (item.classList.contains('active')) {
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                } else {
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
